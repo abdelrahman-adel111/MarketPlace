@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MarketPlace - Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#6ed6de",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#8bf3fb",
+                        "inverse-surface": "#303030",
+                        "gradient-start": "#5c6bc0",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#00105b",
+                        "on-tertiary-container": "#003030",
+                        "input-fill": "#eeeeee",
+                        "surface-container-high": "#eae8e7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "gradient-end": "#2da0a8",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#27378a",
+                        "surface-tint": "#00696f",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed": "#00fbfb",
+                        "error-container": "#ffdad6",
+                        "surface-bg": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002022",
+                        "on-error": "#ffffff",
+                        "outline": "#6d797a",
+                        "inverse-primary": "#6ed6de",
+                        "on-primary-container": "#003033",
+                        "primary": "#00696f",
+                        "tertiary-container": "#00a2a2",
+                        "border-low-light": "#cccccc",
+                        "surface": "#fbf9f8",
+                        "secondary": "#4858ab",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#2da0a8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#3d494a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary": "#006a6a",
+                        "on-tertiary-fixed": "#002020",
+                        "on-secondary-fixed-variant": "#2f3f92",
+                        "surface-container": "#f0eded",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#96a5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "panel-padding": "30px",
+                        "container-padding": "40px",
+                        "gutter-md": "20px",
+                        "input-gap": "8px",
+                        "stack-xs": "3px",
+                        "stack-sm": "10px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-hero": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-scroller {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .ios-scroller::-webkit-scrollbar {
+            display: none;
+        }
+        .product-card-hover {
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .product-card-hover:active {
+            transform: scale(0.96);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface bg-background">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_0_50px_rgba(45,160,168,0.3)] flex justify-between items-center px-panel-padding h-16 w-full">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform duration-600 ease-in-out hover:opacity-80 transition-opacity duration-600" data-icon="menu">menu</button>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary tracking-tight uppercase">MarketPlace</span>
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform duration-600 ease-in-out hover:opacity-80 transition-opacity duration-600" data-icon="search">search</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-24 px-4 max-w-md mx-auto">
+<!-- Search & Filter Bar -->
+<section class="mb-6 space-y-4">
+<div class="relative group">
+<input class="w-full bg-input-fill rounded-lg py-3 pl-12 pr-4 font-body-md text-on-surface focus:ring-2 focus:ring-primary-container border-none transition-all duration-600" placeholder="Search premium tech..." type="text" value="Wireless headphones"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-button-text text-button-text text-on-surface-variant">84 Results</span>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-lg font-button-text text-button-text active:scale-95 transition-all duration-600 shadow-lg shadow-primary/20" onclick="toggleFilters()">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+                    Sort &amp; Filter
+                </button>
+</div>
+</section>
+<!-- Product Grid (2 Columns) -->
+<section class="grid grid-cols-2 gap-4">
+<!-- Product Card 1 -->
+<div class="product-card-hover bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="A sleek pair of high-end wireless over-ear headphones displayed against a soft, minimalist background. The lighting is crisp and modern, emphasizing the matte teal finish and premium metallic details. The overall mood is sophisticated and tech-forward, matching a professional e-commerce aesthetic with soft cyan ambient glows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRcS8Y4_lOJRkLYnXy_CizHdIrl0wFPpHX6RoYLhd-S0Dge9rf4V9BXtv8yGvJnoFu-QL4r7d5WKXCwkJBHhQkTQJcprqHqxfMA7IgVsc3E-AYMvW9GT9KoFBAgMbcvl6Ilxi_BqNQZI68uYF7vpBqQQPkwRTPHOVkf-aOSnA30bQhiawBXDkYIFKAkpliY1ykWRpYGInw5i7q6clZ93jNdXsAviDdd2Jj4D-rh49UO3R-5paPw5W1hSW6quUzxDlaU6WSguUjKmY9"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-primary active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-3 space-y-1">
+<h3 class="font-button-text text-button-text text-on-surface truncate">AeroSound Max Pro</h3>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9 (1.2k)</span>
+</div>
+<p class="font-headline-lg-mobile text-[16px] text-primary">$299.00</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card-hover bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="A futuristic smartwatch with a glowing circular display showing health metrics. The watch has a high-quality leather strap and is placed on a reflective glass surface with deep blue and teal atmospheric lighting. The style is clean, modern, and luxury-oriented, following a sleek corporate glassmorphism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiIlfmP8EME87qKw-VKW2Sc5xq9FNMEEW2xw9KNSWF_FnA9ms5IySjqBvJAvC1xksDCXyHihfyVlapAhcHhT1_Q0X7NWyxjKZYKY9sQ62fDRSbjW2S1Px21HNTvObJCZrXiNDZC4McP1Ihyb3H9xOFQFuuqAXO1-qnEv_xQip-jYecI7tQt6EV6Qk3pOucwkg-7LQBF3-A-RoPWc8GkQ4a0HtxESdrjNz8FPZmdHf8PaXIHaGWXwf8fjzsi6F5DviY8PK3ympWkCQv"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-outline-variant active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-3 space-y-1">
+<h3 class="font-button-text text-button-text text-on-surface truncate">Vortex Timepiece V2</h3>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.7 (842)</span>
+</div>
+<p class="font-headline-lg-mobile text-[16px] text-primary">$185.00</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card-hover bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="A minimal white designer water bottle with a textured surface, standing in a brightly lit architectural space. The image features soft shadows and a high-key lighting setup that evokes a sense of purity and modern design. The color palette is dominated by whites and soft greys with a hint of teal reflection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWl3aCtPKzVb55l-j7Z7arfhEAPy8QxdzfnZInuwxLd99Cu8vtjawaln5sCsXgDN9qzG-hrecH-AKWRg3FtoR82diqO3LSJC6JoYYt3IFD7V1hyi4tLlCTh7vUZ1gcuWL1aRJZeNLbkWwM_lt-zIQe1xB3EiS2NEeyNeqkkXqLrWCZIAyGXfPkUbALJfM1UKv8VZd_zcONLSq8oIX7DRGvdqzwTq4ipWCcX60R0pAIauOjwvTP1Ij_GKC2ywvuksIceMZBuqZZwA6X"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-outline-variant active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-3 space-y-1">
+<h3 class="font-button-text text-button-text text-on-surface truncate">PureFlow Vessel</h3>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>5.0 (204)</span>
+</div>
+<p class="font-headline-lg-mobile text-[16px] text-primary">$45.00</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card-hover bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="Sophisticated black eyewear with blue-light filtering lenses resting on a tech-themed desk setup. The lighting is cinematic with a teal glow emanating from nearby equipment. The composition is tight and emphasizes the sleek lines and premium build quality of the frames within a high-energy digital environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWbNrNrtiNWH3JPHGln8-BSE2FcLoQ-7ylXvnkgjOqRK9xSEhNPk9UgA0sUGDz0lbP1WDQGGQJU9HZIrED61fw1Z2w5Z37bFivMRDLJ21vVUukDELNBs3dBxsZz93EDXazQCmT66e36qq-tYlSiXyqlwZ3IIC6C-0VaSRnGRJZJWU99v-iqDWJpyyfYNv1q2HJfxIEtFA6vaeDhbGO4fJuOJ5lY0e7JzfZvQq_rDDdF4VRm1k93tO1tlvoj1vSIeB4cmuuf4Fl1l7v"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-primary active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-3 space-y-1">
+<h3 class="font-button-text text-button-text text-on-surface truncate">Visionary Frames</h3>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8 (1.1k)</span>
+</div>
+<p class="font-headline-lg-mobile text-[16px] text-primary">$120.00</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="product-card-hover bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="An instant film camera with a unique limited edition teal and white color scheme. The camera is positioned artistically among minimalist props in a bright studio environment. The lighting is diffused and high-key, creating a playful yet high-end look that appeals to a creative and digitally native audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuVvgDrorv1BvYrorUWbgOkAbQRjBsBs-urv6d8BLKmFXu6aW7KPXE05MY-ekJ7hN0FKm8_kBet-V24-ZmdowCm3kjFW_eUyDC-VbB07WTRBGig-hVWrD4xzGtpJYWrt0UdNNk3WP-ANiRtPZ0V9zw3n2h0YuiuEDmSYRKmua9iDoUyJPE0dc1tCwwdbXAPsLiP289sfhsXTl0_ZCycwQejL4wWvouWI9FDOFNA8XR5cEWHoeO-jHP0kwJfUGVDuJbztjtoyHjZ_iO"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-outline-variant active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-3 space-y-1">
+<h3 class="font-button-text text-button-text text-on-surface truncate">SnapInsta Retro</h3>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.5 (560)</span>
+</div>
+<p class="font-headline-lg-mobile text-[16px] text-primary">$89.00</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="product-card-hover bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-surface-container">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover" data-alt="A slim metallic tablet with a glowing stylus resting on its screen. The device is displayed in a dark room with vibrant cyan and indigo neon accents highlighting its thin profile. The visual style is premium tech, focusing on professional creativity and modern digital craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApkqYFdjyyEmq-H00K6tOwgi-ytepZ7A6s8l9kd8dzNZbjxDuec1pdMKJ8zkrMumuJepQmokDFMGFsXvvpKtjff6_0gONKN-y-Z6vKsarhsnoX-EsABL0hOyAp-CCrTjP2_2_yLUinAYtcXBKdR-HupzdcxyjM7HFd6BSYPvGp_Xe4Sfv0oDh_5XECfd-NjPcNtsNZbhXGM1kCd0sl8nJY1teH3IJGMZVFKRmnpLSbzkRrYOjQIiTm-WB_cVCYz7Uuw4mIiymAkMrR"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-primary active:scale-110 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-3 space-y-1">
+<h3 class="font-button-text text-button-text text-on-surface truncate">Canvas Pad Pro</h3>
+<div class="flex items-center gap-1 text-[10px] text-tertiary">
+<span class="material-symbols-outlined text-[12px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9 (2.4k)</span>
+</div>
+<p class="font-headline-lg-mobile text-[16px] text-primary">$749.00</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_-10px_40px_rgba(45,160,168,0.15)] rounded-t-xl flex justify-around items-center w-full px-4 pb-safe h-20">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 active:scale-90 transition-transform duration-600 ease-in-out hover:text-primary transition-colors duration-600">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1.5 active:scale-90 transition-transform duration-600 ease-in-out">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 active:scale-90 transition-transform duration-600 ease-in-out hover:text-primary transition-colors duration-600">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 active:scale-90 transition-transform duration-600 ease-in-out hover:text-primary transition-colors duration-600">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</button>
+</nav>
+<!-- Filter Drawer (Hidden by default) -->
+<div class="fixed inset-0 bg-black/40 z-[70] hidden opacity-0 transition-opacity duration-600" id="filter-overlay" onclick="toggleFilters()"></div>
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest z-[80] rounded-t-3xl translate-y-full transition-transform duration-600 ease-in-out p-panel-padding" id="filter-drawer">
+<div class="w-12 h-1 bg-outline-variant rounded-full mx-auto mb-6"></div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-6">Filters</h2>
+<div class="space-y-6 mb-8">
+<div>
+<p class="font-button-text text-button-text text-on-surface mb-3">Sort By</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm">Popularity</span>
+<span class="px-4 py-2 rounded-lg bg-input-fill text-on-surface-variant font-label-sm text-label-sm">Price: Low to High</span>
+<span class="px-4 py-2 rounded-lg bg-input-fill text-on-surface-variant font-label-sm text-label-sm">Newest</span>
+</div>
+</div>
+<div>
+<p class="font-button-text text-button-text text-on-surface mb-3">Category</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-lg bg-input-fill text-on-surface-variant font-label-sm text-label-sm">Audio</span>
+<span class="px-4 py-2 rounded-lg bg-input-fill text-on-surface-variant font-label-sm text-label-sm">Wearables</span>
+<span class="px-4 py-2 rounded-lg bg-input-fill text-on-surface-variant font-label-sm text-label-sm">Accessories</span>
+<span class="px-4 py-2 rounded-lg bg-input-fill text-on-surface-variant font-label-sm text-label-sm">Smart Home</span>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 py-4 border border-outline-variant rounded-xl font-button-text text-button-text text-on-surface active:scale-95 transition-all" onclick="toggleFilters()">Reset</button>
+<button class="flex-1 py-4 bg-primary text-on-primary rounded-xl font-button-text text-button-text uppercase active:scale-95 transition-all" onclick="toggleFilters()">Apply Filters</button>
+</div>
+</div>
+<script>
+        function toggleFilters() {
+            const drawer = document.getElementById('filter-drawer');
+            const overlay = document.getElementById('filter-overlay');
+            
+            if (drawer.classList.contains('translate-y-full')) {
+                drawer.classList.remove('translate-y-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            } else {
+                drawer.classList.add('translate-y-full');
+                overlay.classList.remove('opacity-100');
+                setTimeout(() => overlay.classList.add('hidden'), 600);
+            }
+        }
+        
+        // Micro-interaction for heart icons
+        document.querySelectorAll('button:has(.material-symbols-outlined)').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (this.querySelector('[data-icon="favorite"]')) {
+                    const icon = this.querySelector('.material-symbols-outlined');
+                    const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+                    icon.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                    if (!isFilled) {
+                        this.classList.replace('text-outline-variant', 'text-error');
+                    } else {
+                        this.classList.replace('text-error', 'text-outline-variant');
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

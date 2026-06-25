@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Tracking | MarketPlace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cyber-glow {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.3);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-in {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+        .asymmetric-clip {
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed-dim": "#6ed6de",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "tertiary-fixed-dim": "#00dddd",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#8bf3fb",
+                    "inverse-surface": "#303030",
+                    "gradient-start": "#5c6bc0",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#00105b",
+                    "on-tertiary-container": "#003030",
+                    "input-fill": "#eeeeee",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed-variant": "#004f54",
+                    "gradient-end": "#2da0a8",
+                    "outline-variant": "#bdc9ca",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#27378a",
+                    "surface-tint": "#00696f",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-fixed": "#00fbfb",
+                    "error-container": "#ffdad6",
+                    "surface-bg": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004f4f",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#002022",
+                    "on-error": "#ffffff",
+                    "outline": "#6d797a",
+                    "inverse-primary": "#6ed6de",
+                    "on-primary-container": "#003033",
+                    "primary": "#00696f",
+                    "tertiary-container": "#00a2a2",
+                    "border-low-light": "#cccccc",
+                    "surface": "#fbf9f8",
+                    "secondary": "#4858ab",
+                    "surface-container-low": "#f6f3f2",
+                    "primary-container": "#2da0a8",
+                    "surface-variant": "#e4e2e1",
+                    "on-surface-variant": "#3d494a",
+                    "inverse-on-surface": "#f3f0f0",
+                    "secondary-fixed": "#dee0ff",
+                    "tertiary": "#006a6a",
+                    "on-tertiary-fixed": "#002020",
+                    "on-secondary-fixed-variant": "#2f3f92",
+                    "surface-container": "#f0eded",
+                    "background": "#fbf9f8",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#96a5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "panel-padding": "30px",
+                    "container-padding": "40px",
+                    "gutter-md": "20px",
+                    "input-gap": "8px",
+                    "stack-xs": "3px",
+                    "stack-sm": "10px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "display-hero": ["Montserrat"],
+                    "button-text": ["Montserrat"],
+                    "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface-container border-b border-outline-variant shadow-sm dark:shadow-none sticky top-0 z-50">
+<div class="flex justify-between items-center px-container-padding py-4 w-full max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface dark:text-inverse-on-surface tracking-tighter">
+                MarketPlace
+            </div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Shop</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Deals</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">New Arrivals</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">shopping_cart</span>
+</button>
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">favorite</span>
+</button>
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="flex-grow w-full max-w-5xl mx-auto px-container-padding py-12">
+<!-- Header Section -->
+<div class="mb-12 animate-slide-in">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Track Your Adventure</h1>
+<p class="font-body-md text-on-surface-variant opacity-70">Order #MP-882910-X • Estimated Arrival: Oct 24, 2024</p>
+</div>
+<!-- Cyber-Fluid Progress Bar -->
+<div class="relative mb-20 px-4 animate-slide-in" style="animation-delay: 0.1s;">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-highest -translate-y-1/2 rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-gradient-start to-gradient-end w-2/3 transition-all duration-1000 ease-out"></div>
+</div>
+<div class="relative flex justify-between">
+<!-- Ordered -->
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end flex items-center justify-center text-white cyber-glow z-10 scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="mt-4 font-label-sm text-label-sm font-bold text-primary">Ordered</span>
+<span class="text-[10px] uppercase tracking-widest opacity-50">Oct 18</span>
+</div>
+<!-- Processed -->
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end flex items-center justify-center text-white cyber-glow z-10 scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<span class="mt-4 font-label-sm text-label-sm font-bold text-primary">Processed</span>
+<span class="text-[10px] uppercase tracking-widest opacity-50">Oct 19</span>
+</div>
+<!-- Shipped -->
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-gradient-start to-gradient-end flex items-center justify-center text-white cyber-glow z-10 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<div class="absolute -inset-1 border-2 border-primary-container rounded-full animate-ping opacity-20"></div>
+</div>
+<span class="mt-4 font-label-sm text-label-sm font-bold text-primary">Shipped</span>
+<span class="text-[10px] uppercase tracking-widest opacity-50">Oct 21</span>
+</div>
+<!-- Delivered -->
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant z-10">
+<span class="material-symbols-outlined">package_2</span>
+</div>
+<span class="mt-4 font-label-sm text-label-sm font-medium text-on-surface-variant">Delivered</span>
+<span class="text-[10px] uppercase tracking-widest opacity-50">Pending</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric Info Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-md">
+<!-- Order Details -->
+<div class="md:col-span-2 glass-panel p-panel-padding rounded-[30px] cyber-glow animate-slide-in" style="animation-delay: 0.2s;">
+<div class="bg-primary-container inline-block px-4 py-1 rounded-lg asymmetric-clip mb-6">
+<h2 class="font-label-sm text-label-sm text-white uppercase font-bold tracking-widest">Order Summary</h2>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between p-4 bg-input-fill rounded-xl hover:bg-surface-container transition-colors duration-300">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-white rounded-lg overflow-hidden border border-outline-variant">
+<img alt="Nike Red Shoe" class="w-full h-full object-cover" data-alt="A high-end studio product photograph of a sleek crimson athletic sneaker positioned on a minimalist platform. The lighting is dramatic, high-contrast cinematic teal and purple rim light highlighting the shoe's contours. The background is a clean, neutral white creating a modern light-mode ecommerce feel. The overall aesthetic is tech-forward and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1yv_nQZ7WiFAISa8YhQ-VBoTYdca_InSJZntcyfKxB0pwtY6n4ldfNm8pYOX8BRXcg2x6ooup4XdaziDEtje7LR2mWKABZlHrO0yi23-1apxuFSFrm8wKDgMeMqm1lJ3XtxwlIIRulocUYC0ldgMQaM2jjuV5MR_TuZzaLSPoD_fwIsHjr6tidqG9Od6FCODP0FyOXMYoOpcbkYk7Ecz5xrKTWHxQCKk4vOypyEZ0ZWIfutdNi5Hca1okpoX8xWkkmefqssKwnUp0"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">HyperSwift Velocity X1</p>
+<p class="font-label-sm text-label-sm opacity-60">Color: Electric Teal • Size: 10.5</p>
+</div>
+</div>
+<p class="font-bold text-primary">$189.00</p>
+</div>
+<div class="flex items-center justify-between p-4 bg-input-fill rounded-xl hover:bg-surface-container transition-colors duration-300">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 bg-white rounded-lg overflow-hidden border border-outline-variant">
+<img alt="Modern Watch" class="w-full h-full object-cover" data-alt="A professional product shot of a minimalist matte white wristwatch with a light gray silicon strap. The watch is presented on a clean, bright white surface with soft, diffused light creating subtle shadows. The atmosphere is sophisticated and clean, perfectly matching a premium marketplace aesthetic. Details are sharp, emphasizing high-quality materials and technological precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5sypSPdWpbdSomdhv-8Z5khgACtEx_-umdMPfYoMMHk0UFbtIieSqYVpjyluTWnSadLq5JaLK_J600IYTXCq9aox8_6gYw3W_j0f2zS9wF7hMbXQqVkB6Jx8S2d4q64DOfBJwIfWkTx6WWyiE6UeGo1WzLNMBNEOYgbpMfU-Niqj_uRgi7p869VZORWQynRI_JzUjw3MJ9o3TwcS49y0WnzhQ_SEicTQ1YGhnSG9gQx9HOKhivz9Q2wPVqWMa7fRgESqdpDQBe856"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Quantum Chrono White</p>
+<p class="font-label-sm text-label-sm opacity-60">Limited Edition • Series 04</p>
+</div>
+</div>
+<p class="font-bold text-primary">$245.00</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant flex justify-between items-end">
+<div>
+<p class="font-label-sm text-label-sm opacity-60">Payment Method</p>
+<p class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">credit_card</span>
+                            •••• 4421
+                        </p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm opacity-60">Total Amount</p>
+<p class="text-2xl font-black text-primary">$434.00</p>
+</div>
+</div>
+</div>
+<!-- Shipping Card -->
+<div class="flex flex-col gap-gutter-md">
+<div class="glass-panel p-panel-padding rounded-[30px] cyber-glow animate-slide-in" style="animation-delay: 0.3s;">
+<div class="bg-primary-container inline-block px-4 py-1 rounded-lg asymmetric-clip mb-6">
+<h2 class="font-label-sm text-label-sm text-white uppercase font-bold tracking-widest">Shipping</h2>
+</div>
+<div class="space-y-4">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div>
+<p class="font-bold text-on-surface">Alex Rivera</p>
+<p class="font-label-sm text-label-sm opacity-70">1284 Innovation Blvd, Suite 400<br/>Cyber City, CA 90210</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">phone</span>
+<p class="font-label-sm text-label-sm opacity-70">+1 (555) 012-3456</p>
+</div>
+</div>
+<button class="mt-8 w-full py-3 bg-primary text-white font-button-text text-button-text uppercase rounded-lg hover:bg-primary-container transition-all duration-300 scale-95 active:scale-90">
+                        Edit Address
+                    </button>
+</div>
+<div class="bg-gradient-to-br from-gradient-start to-gradient-end p-panel-padding rounded-[30px] text-white cyber-glow animate-slide-in" style="animation-delay: 0.4s;">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">help_center</span>
+                        Need Help?
+                    </h3>
+<p class="font-label-sm text-label-sm opacity-90 mb-6">Our support team is available 24/7 to help with any shipping delays or product inquiries.</p>
+<button class="w-full py-3 border border-white text-white font-button-text text-button-text uppercase rounded-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        Chat Support
+                    </button>
+</div>
+</div>
+</div>
+<!-- Map Visualization -->
+<div class="mt-12 w-full h-64 rounded-[30px] overflow-hidden cyber-glow animate-slide-in" style="animation-delay: 0.5s;">
+<div class="w-full h-full bg-surface-container-highest relative flex items-center justify-center">
+<img alt="Map View" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-location="Los Angeles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7lAQfwLKUXv5pviodSlaXTubNcxCBaqw_VPTEZd0QMjmYFmEmNK6zuBspP3y760yEm0RdWErg7BrTNotgSzfsufCP_qWguxhqQwR70yJbGnCmg7UVkAcPNXphNr5DR-yI5J3VcOHW07MG9k4pqUAD9s0S2E0W-qnTM2wklXXpYZiTGDohkKbqftn8bBklnWuKfLPOZMZuve7A8hqGyoi3SS3lYB2T6rDMwEqDxZasyhr6bBc-9gXmtl34fEWYaxy4QjfN9XAuRcIo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+<div class="absolute flex flex-col items-center">
+<div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white shadow-lg animate-bounce">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div class="mt-2 bg-white px-3 py-1 rounded-full shadow-md">
+<p class="font-bold text-[10px] uppercase text-primary">In Transit - LA Hub</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md px-container-padding py-panel-padding max-w-7xl mx-auto">
+<div class="col-span-1">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface dark:text-inverse-on-surface mb-4">MarketPlace</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Redefining the shopping experience through technological precision.</p>
+</div>
+<div class="flex flex-col space-y-2">
+<h4 class="font-bold text-primary mb-2">Company</h4>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-all duration-300" href="#">About Us</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-all duration-300" href="#">Careers</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-all duration-300" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col space-y-2">
+<h4 class="font-bold text-primary mb-2">Support</h4>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-all duration-300" href="#">Help Center</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-all duration-300" href="#">Contact</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:underline hover:text-primary transition-all duration-300" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="font-bold text-primary mb-2">Newsletter</h4>
+<div class="flex">
+<input class="bg-surface-container-low border-none rounded-l-lg w-full font-label-sm text-label-sm p-3" placeholder="Your email" type="text"/>
+<button class="bg-primary text-white px-4 rounded-r-lg font-button-text text-button-text uppercase">Join</button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-6 text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">© 2024 MarketPlace. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for the progress bar
+        document.addEventListener('DOMContentLoaded', () => {
+            const bar = document.querySelector('.h-full.bg-gradient-to-r');
+            if(bar) {
+                setTimeout(() => {
+                    bar.style.width = '66%';
+                }, 500);
+            }
+
+            // Hover effects for cards
+            const panels = document.querySelectorAll('.glass-panel');
+            panels.forEach(panel => {
+                panel.addEventListener('mouseenter', () => {
+                    panel.style.transform = 'translateY(-4px)';
+                    panel.style.transition = 'transform 0.4s ease-out';
+                });
+                panel.addEventListener('mouseleave', () => {
+                    panel.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body></html>

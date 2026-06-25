@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MarketPlace | Empty Cart</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#6ed6de",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#8bf3fb",
+                        "inverse-surface": "#303030",
+                        "gradient-start": "#5c6bc0",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#00105b",
+                        "on-tertiary-container": "#003030",
+                        "input-fill": "#eeeeee",
+                        "surface-container-high": "#eae8e7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "gradient-end": "#2da0a8",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#27378a",
+                        "surface-tint": "#00696f",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed": "#00fbfb",
+                        "error-container": "#ffdad6",
+                        "surface-bg": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002022",
+                        "on-error": "#ffffff",
+                        "outline": "#6d797a",
+                        "inverse-primary": "#6ed6de",
+                        "on-primary-container": "#003033",
+                        "primary": "#00696f",
+                        "tertiary-container": "#00a2a2",
+                        "border-low-light": "#cccccc",
+                        "surface": "#fbf9f8",
+                        "secondary": "#4858ab",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#2da0a8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#3d494a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary": "#006a6a",
+                        "on-tertiary-fixed": "#002020",
+                        "on-secondary-fixed-variant": "#2f3f92",
+                        "surface-container": "#f0eded",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#96a5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "panel-padding": "30px",
+                        "container-padding": "40px",
+                        "gutter-md": "20px",
+                        "input-gap": "8px",
+                        "stack-xs": "3px",
+                        "stack-sm": "10px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-hero": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cyber-aura {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.25);
+        }
+        .floating-anim {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-surface-bg font-body-md text-on-surface selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-container border-b border-outline-variant shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-container-padding py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-black uppercase text-on-surface dark:text-inverse-on-surface tracking-tighter">MarketPlace</span>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Shop</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Deals</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">New Arrivals</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer scale-95 active:scale-90 transition-transform duration-600 ease-in-out">shopping_cart</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer scale-95 active:scale-90 transition-transform duration-600 ease-in-out">favorite</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer scale-95 active:scale-90 transition-transform duration-600 ease-in-out">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="min-h-screen pt-24 pb-12 flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Atmospheric Background Element -->
+<div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-tr from-primary/10 to-secondary/5 blur-[120px]"></div>
+<!-- The Empty State Card -->
+<div class="w-full max-w-2xl px-container-padding">
+<div class="bg-white rounded-[30px] p-10 md:p-20 cyber-aura flex flex-col items-center text-center relative overflow-hidden">
+<!-- Sliding Decorative Panel (Design System Motion) -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gradient-start to-gradient-end opacity-10 rounded-bl-[100px] transition-all duration-[600ms] hover:w-40 hover:h-40"></div>
+<!-- Illustration Hero -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 mb-10 floating-anim">
+<!-- Central Bag Illustration -->
+<div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full blur-3xl opacity-30"></div>
+<img alt="Empty Shopping Bag" class="w-full h-full object-contain relative z-10 drop-shadow-2xl grayscale-[0.2] contrast-[1.1]" data-alt="A stylized 3D digital illustration of a premium paper shopping bag floating in a void. The bag is rendered in a smooth matte teal and deep blue gradient palette with soft cinematic lighting. Subtle cyan glows emanate from the base of the bag, which is positioned centrally against a clean, light-mode background with soft shadows. The overall aesthetic is tech-forward, high-energy, and modern e-commerce luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8qLd181WZSe_Zk7r1QafdWRRMqQ60pwltvfclJMq3BFbndlab6PDey22GTU377xdOpQnUJAy4tP3jijl3t3bW9EuOPncu3rLkaf5_ORJws2fE9u_tRvBvpCzU9pXlzs1xYBEVbgvD7VQdUrsnvaIYQ1q9y-tN2tt-c_CVfeycjg0EakrBj6x2huknNCcvXQ2R28r_LjPybDdsPmiFJR-Lac9NXRxqD96oP0PuUEOFew5STYlhJ2LOtJdfXtAu7ky9W4Vol6K_cwTm"/>
+<!-- Decorative Floating Elements -->
+<div class="absolute top-10 -left-4 w-12 h-12 bg-primary-container/20 rounded-xl rotate-12 flex items-center justify-center backdrop-blur-md border border-white/50">
+<span class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span>
+</div>
+<div class="absolute bottom-10 -right-4 w-10 h-10 bg-secondary-container/20 rounded-full -rotate-12 flex items-center justify-center backdrop-blur-md border border-white/50">
+<span class="material-symbols-outlined text-secondary text-[20px]">add</span>
+</div>
+</div>
+<!-- Textual Content -->
+<div class="space-y-4 max-w-md z-10">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Your cart is feeling lonely.</h1>
+<p class="font-body-md text-body-md text-on-surface-variant px-4">
+                        It looks like you haven't added anything to your cart yet. Explore our latest arrivals and find something special for yourself.
+                    </p>
+</div>
+<!-- Call to Action -->
+<div class="mt-10 z-10 w-full sm:w-auto">
+<button class="group relative w-full sm:w-64 py-4 px-8 bg-gradient-end rounded-lg overflow-hidden transition-all duration-600 active:scale-95">
+<!-- Ripple/Fluid Hover Effect -->
+<div class="absolute inset-0 bg-gradient-start translate-y-full group-hover:translate-y-0 transition-transform duration-600 ease-in-out"></div>
+<span class="relative z-10 font-button-text text-button-text text-white uppercase tracking-widest flex items-center justify-center gap-2">
+                            Start Shopping
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</span>
+</button>
+<div class="mt-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline decoration-outline-variant underline-offset-4" href="#">
+                            View Wishlist
+                        </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Categories Bento (Modern UI Pattern) -->
+<div class="w-full max-w-7xl mx-auto px-container-padding mt-24">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8 text-center md:text-left">Need some inspiration?</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md">
+<div class="md:col-span-2 md:row-span-2 group relative h-80 md:h-auto rounded-[20px] overflow-hidden cyber-aura">
+<img alt="Tech Gadgets" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up shot of a sleek white smartwatch on a clean white surface with a soft cyan ambient glow coming from the background. The aesthetic is extremely minimalist and tech-forward, matching a light-mode modern UI. Soft shadows and high-key lighting create a premium corporate feel. Cinematic depth of field focuses on the craftsmanship of the device." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9aAUxzkKfpUkjdKm45AinLuqymrN7v-61BbLkIHk7GKXOHlGfmErwLx4qervVYqeO0hWN-TGG6EU6_Tfd2aYHF8v-MSF38Yb53JtgQoOzkE-72H0bqr9Ep0GlNPqOJ6sZ16Wbp-cj6hWVi5RQ9lp8zysg-lpmO4ftWz48ymF8-SFex0prHJQ4qVCHF7hSvyQyCpYD2lrG-SOD8miik337cU5-m23bVyLsmn2OkgtVD-_Z36OcH4FU69dRp_pN6BG8A4LRHxWGNqb0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-8">
+<p class="text-white font-label-sm mb-1 uppercase tracking-widest opacity-80">Featured</p>
+<h3 class="text-white font-headline-lg text-headline-lg">Tech Essentials</h3>
+</div>
+</div>
+<div class="group relative h-80 rounded-[20px] overflow-hidden cyber-aura">
+<img alt="Style" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist white sneakers on a light gray architectural background with sharp, geometric shadows and soft blue accent lighting. The mood is ambitious and clean, representing high-fashion e-commerce. Colors are muted with high contrast in a tech-forward presentation. 50 words description of luxury footwear in a studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYK_-mrWQlu7evr3yctiztLuqffe_qHxCdQ6uo4P2IpKLULNkZo3GBlPVlT29ckyv1QTWQnW4VzjtBsCgIeawwilZpIVp3ByhsHaW3mw_dvv58MPYLNSRhcJ1dYIpkSlDkJzLNYL905cptx_ruwJJutqf5lvHrn8o6ehmI0Q3t7khSzSytYetJuiTJPyDTEUjembLvvo9X4w9ZxFVzaC_EB1NF0S17Toh0bL_MtxItUtv0TyooVKODAa4L8E7NNqzpsAcI1oVboVe_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+<h3 class="text-white font-body-md font-bold uppercase">Modern Style</h3>
+</div>
+</div>
+<div class="group relative h-80 rounded-[20px] overflow-hidden cyber-aura">
+<img alt="Audio" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Premium wireless headphones resting on a glass surface with extreme cyan light glows and a dark blue background. The lighting is cinematic and moody, highlighting the sleek curves and metallic textures of the product. The style is fluid cyber-modern with a vivid sense of depth and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCylxQziMMVjL4UU4dRNm8XPCwWyRws4dfXarBUD8z4tdSjFQx4JyAB-goV5MnkcdfFjoXwuW7dey2WCdTHWdtf70c_bNQ2F37et06DiIwmSIwcfq-fCvzos5MB-T1THlawDBlbynzkxJoaWkuHueRcJs6nc3uvSsahKGsVawVnlAqmLyEamD6XfGZg6ajBgBgtQjGEmkH7E3ZsQEt4crYaWvuaVGT3TvbCqtZM0XOhBGTvPP5xErybivGqIms2t3pxf96WWavHpVgc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+<h3 class="text-white font-body-md font-bold uppercase">Audio Pro</h3>
+</div>
+</div>
+<div class="md:col-span-2 group relative h-60 rounded-[20px] overflow-hidden cyber-aura">
+<div class="absolute inset-0 bg-gradient-to-r from-gradient-start to-gradient-end opacity-90 transition-opacity duration-600 group-hover:opacity-100"></div>
+<div class="relative h-full flex items-center justify-between px-10">
+<div class="text-white">
+<h3 class="font-headline-lg text-headline-lg mb-2">New Arrivals</h3>
+<p class="font-body-md opacity-80">Fresh drops just landed in the store.</p>
+</div>
+<span class="material-symbols-outlined text-white text-[64px] opacity-20 group-hover:opacity-40 transition-opacity">shopping_cart_checkout</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md px-container-padding py-panel-padding max-w-7xl mx-auto">
+<div class="md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-black uppercase text-on-surface dark:text-inverse-on-surface">MarketPlace</span>
+<p class="mt-4 text-on-surface-variant font-body-md">Precision crafted commerce for the digitally native generation.</p>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-bold text-primary mb-2">Explore</h4>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-all duration-300 font-label-sm" href="#">About Us</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-all duration-300 font-label-sm" href="#">Contact</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-all duration-300 font-label-sm" href="#">Help Center</a>
+</div>
+<div class="flex flex-col gap-2">
+<h4 class="font-bold text-primary mb-2">Legal</h4>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-all duration-300 font-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-all duration-300 font-label-sm" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-primary">Join our Newsletter</h4>
+<div class="flex items-center bg-white rounded-lg p-1">
+<input class="flex-grow border-none focus:ring-0 text-label-sm px-4" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-container-padding py-6 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-on-surface-variant">© 2024 MarketPlace. All rights reserved.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 border border-border-low-light rounded-[20%] flex items-center justify-center transition-all duration-600 hover:border-primary hover:text-primary cursor-pointer">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div class="w-10 h-10 border border-border-low-light rounded-[20%] flex items-center justify-center transition-all duration-600 hover:border-primary hover:text-primary cursor-pointer">
+<span class="material-symbols-outlined">share</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for the CTA button
+        const ctaBtn = document.querySelector('button');
+        ctaBtn.addEventListener('mousemove', (e) => {
+            const rect = ctaBtn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            ctaBtn.style.setProperty('--x', `${x}px`);
+            ctaBtn.style.setProperty('--y', `${y}px`);
+        });
+
+        // Toggle Dark Mode (Optional Support)
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+    </script>
+</body></html>

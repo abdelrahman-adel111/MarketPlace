@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MarketPlace - Product Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#6ed6de",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#8bf3fb",
+                        "inverse-surface": "#303030",
+                        "gradient-start": "#5c6bc0",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#00105b",
+                        "on-tertiary-container": "#003030",
+                        "input-fill": "#eeeeee",
+                        "surface-container-high": "#eae8e7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "gradient-end": "#2da0a8",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#27378a",
+                        "surface-tint": "#00696f",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed": "#00fbfb",
+                        "error-container": "#ffdad6",
+                        "surface-bg": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002022",
+                        "on-error": "#ffffff",
+                        "outline": "#6d797a",
+                        "inverse-primary": "#6ed6de",
+                        "on-primary-container": "#003033",
+                        "primary": "#00696f",
+                        "tertiary-container": "#00a2a2",
+                        "border-low-light": "#cccccc",
+                        "surface": "#fbf9f8",
+                        "secondary": "#4858ab",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#2da0a8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#3d494a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary": "#006a6a",
+                        "on-tertiary-fixed": "#002020",
+                        "on-secondary-fixed-variant": "#2f3f92",
+                        "surface-container": "#f0eded",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#96a5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "panel-padding": "30px",
+                        "container-padding": "40px",
+                        "gutter-md": "20px",
+                        "input-gap": "8px",
+                        "stack-xs": "3px",
+                        "stack-sm": "10px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-hero": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            border-bottom: 3px solid #2da0a8;
+            color: #00696f;
+        }
+        .cinematic-glow {
+            box-shadow: 0 0 50px rgba(45,160,168,0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_0_50px_rgba(45,160,168,0.3)] flex justify-between items-center px-panel-padding h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-600 ease-in-out hover:opacity-80 transition-opacity duration-600 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary dark:text-primary-fixed-dim tracking-tight uppercase">MarketPlace</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-600 ease-in-out hover:opacity-80 transition-opacity duration-600 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+<button class="active:scale-95 transition-transform duration-600 ease-in-out hover:opacity-80 transition-opacity duration-600 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</header>
+<main class="mt-16">
+<!-- Image Carousel -->
+<section class="relative w-full aspect-square overflow-hidden bg-surface-container-low">
+<div class="flex transition-transform duration-500 ease-out h-full" id="carousel">
+<div class="w-full flex-shrink-0 h-full">
+<img alt="Product View 1" class="w-full h-full object-cover" data-alt="A professional studio product shot of a sleek, minimalist white ceramic smartwatch with a polished finish. The watch is presented against a soft, diffused cyan background that matches the brand's tech-forward aesthetic. Cinematic high-key lighting highlights the elegant curves and high-tech glass surface. The atmosphere is clean, premium, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcN9mI9UvRxQYHuvfnFpKTMhV64ZwdLvLRyX8kkEWQfieAQeEdvy6oWekc1abqjloxTi3vP6-ORcwHZ6582S8oUnyDH-V9FAGYTwldKMcHGqrBW5NmOMcV18tXDADKNu2l01n29HPZKi4Bkr-_0u9lcvAZBzKaLpUVFPcBY7BQdxT39G1kt6v9RqfHli6skfapvWfdiVe63SM10eTCzDOhFFVtznErL78aCfhbFqQyO7PPQg_edKxpzot5Pug4W995QVm1QjelkxUP"/>
+</div>
+<div class="w-full flex-shrink-0 h-full">
+<img alt="Product View 2" class="w-full h-full object-cover" data-alt="Close-up detail of a premium wearable tech device showing intricate textures and high-quality materials. The lighting is dramatic and cinematic, with soft teal glows reflecting off the metallic edges. The background is a blurred laboratory setting with clean lines and a modern corporate aesthetic. The mood is ambitious and precise, emphasizing professional craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI3geUfYLFik4_UBJunBP_DsRRwFNvUfFojfYeXpKsdixlZDOiwVIgjAmLROqr6ciLK3PvAOmmlUIVAP5KgruygcTpFxySgb1eqqWnIaRyTT_E1rah1L7Ps6zFc0sWcV7W57_ppgo3mK9KjdfEaKS9lbOR8VYsQUv3GgppB70189Wm6HGQnD9SikrLQuEoNdbR69Y26A6jtZQW-8GMVUqpdH8mOH_yGxlpY1b4cSG2l-OfqeDum5OrjNw0He5Rolkk3UUOH9ih4-R-"/>
+</div>
+</div>
+<!-- Carousel Indicators -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant opacity-50"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant opacity-50"></div>
+</div>
+</section>
+<!-- Product Info Canvas -->
+<section class="relative -mt-8 bg-surface-container-lowest rounded-t-[30px] p-panel-padding shadow-[0_-10px_40px_rgba(45,160,168,0.15)] z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-primary font-button-text text-button-text uppercase tracking-widest bg-primary-container/20 px-3 py-1 rounded-full">New Arrival</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mt-2">Cyber Pulse Watch V2</h2>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-border-low-light active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-error" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="flex items-baseline gap-3 mb-6">
+<span class="text-primary font-black text-[28px]">$299.00</span>
+<span class="text-outline line-through text-label-sm font-label-sm">$399.00</span>
+<span class="text-secondary font-bold text-label-sm font-label-sm">25% OFF</span>
+</div>
+<!-- Description -->
+<p class="text-on-surface-variant font-body-md text-body-md leading-relaxed mb-8">
+                Experience the future on your wrist. The Cyber Pulse Watch V2 combines precision engineering with glassmorphism UI principles to deliver a truly cinematic wearable experience.
+            </p>
+<!-- Specs Grid (Bento Style) -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="battery_charging_full">battery_charging_full</span>
+<div>
+<p class="text-[10px] uppercase opacity-60">Battery</p>
+<p class="font-bold">48 Hours</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="water_drop">water_drop</span>
+<div>
+<p class="text-[10px] uppercase opacity-60">Water</p>
+<p class="font-bold">50 Meters</p>
+</div>
+</div>
+</div>
+<!-- Tabbed Content -->
+<div class="mt-8">
+<div class="flex border-b border-outline-variant mb-6">
+<button class="flex-1 py-3 font-button-text text-button-text active-tab uppercase transition-all" id="tab-details" onclick="switchTab('details')">Details</button>
+<button class="flex-1 py-3 font-button-text text-button-text uppercase text-outline transition-all" id="tab-reviews" onclick="switchTab('reviews')">Reviews (128)</button>
+</div>
+<div class="space-y-4 animate-in fade-in duration-500" id="content-details">
+<div class="flex justify-between items-center py-2 border-b border-surface-container">
+<span class="text-on-surface-variant">Material</span>
+<span class="font-semibold">Aerospace Grade Titanium</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container">
+<span class="text-on-surface-variant">Connectivity</span>
+<span class="font-semibold">5G, Bluetooth 5.3</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container">
+<span class="text-on-surface-variant">Sensor</span>
+<span class="font-semibold">Optical Bio-Tracker</span>
+</div>
+</div>
+<div class="hidden space-y-6 animate-in fade-in duration-500" id="content-reviews">
+<div class="flex gap-4 p-4 bg-surface-container-low rounded-xl">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-white font-bold">JD</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<span class="font-bold">John Doe</span>
+<div class="flex text-tertiary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star">star</span>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Unbelievable design and the haptics are out of this world. Highly recommend!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom CTA -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest p-6 rounded-t-xl shadow-[0_-10px_40px_rgba(45,160,168,0.15)]">
+<div class="max-w-md mx-auto flex items-center gap-4">
+<div class="flex items-center bg-surface-container-high rounded-lg p-1">
+<button class="w-10 h-10 flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<span class="w-8 text-center font-bold">1</span>
+<button class="w-10 h-10 flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<button class="flex-1 bg-primary-container text-on-primary-container font-button-text text-button-text h-12 rounded-lg flex items-center justify-center gap-2 uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-primary-container/30 hover:opacity-90">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                Add to Cart
+            </button>
+</div>
+</footer>
+<script>
+        function switchTab(tab) {
+            const detailsTab = document.getElementById('tab-details');
+            const reviewsTab = document.getElementById('tab-reviews');
+            const detailsContent = document.getElementById('content-details');
+            const reviewsContent = document.getElementById('content-reviews');
+
+            if (tab === 'details') {
+                detailsTab.classList.add('active-tab');
+                detailsTab.classList.remove('text-outline');
+                reviewsTab.classList.remove('active-tab');
+                reviewsTab.classList.add('text-outline');
+                detailsContent.classList.remove('hidden');
+                reviewsContent.classList.add('hidden');
+            } else {
+                reviewsTab.classList.add('active-tab');
+                reviewsTab.classList.remove('text-outline');
+                detailsTab.classList.remove('active-tab');
+                detailsTab.classList.add('text-outline');
+                reviewsContent.classList.remove('hidden');
+                detailsContent.classList.add('hidden');
+            }
+        }
+
+        // Simple carousel drag/click logic simulation
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel');
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % 2;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }, 4000);
+    </script>
+</body></html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MarketPlace | Your Wishlist</title>
+<!-- Google Fonts: Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed-dim": "#6ed6de",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "tertiary-fixed-dim": "#00dddd",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#8bf3fb",
+                    "inverse-surface": "#303030",
+                    "gradient-start": "#5c6bc0",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#00105b",
+                    "on-tertiary-container": "#003030",
+                    "input-fill": "#eeeeee",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed-variant": "#004f54",
+                    "gradient-end": "#2da0a8",
+                    "outline-variant": "#bdc9ca",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#27378a",
+                    "surface-tint": "#00696f",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-fixed": "#00fbfb",
+                    "error-container": "#ffdad6",
+                    "surface-bg": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004f4f",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#002022",
+                    "on-error": "#ffffff",
+                    "outline": "#6d797a",
+                    "inverse-primary": "#6ed6de",
+                    "on-primary-container": "#003033",
+                    "primary": "#00696f",
+                    "tertiary-container": "#00a2a2",
+                    "border-low-light": "#cccccc",
+                    "surface": "#fbf9f8",
+                    "secondary": "#4858ab",
+                    "surface-container-low": "#f6f3f2",
+                    "primary-container": "#2da0a8",
+                    "surface-variant": "#e4e2e1",
+                    "on-surface-variant": "#3d494a",
+                    "inverse-on-surface": "#f3f0f0",
+                    "secondary-fixed": "#dee0ff",
+                    "tertiary": "#006a6a",
+                    "on-tertiary-fixed": "#002020",
+                    "on-secondary-fixed-variant": "#2f3f92",
+                    "surface-container": "#f0eded",
+                    "background": "#fbf9f8",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#96a5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "panel-padding": "30px",
+                    "container-padding": "40px",
+                    "gutter-md": "20px",
+                    "input-gap": "8px",
+                    "stack-xs": "3px",
+                    "stack-sm": "10px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "display-hero": ["Montserrat"],
+                    "button-text": ["Montserrat"],
+                    "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .cyber-glow {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .asymmetric-panel {
+            border-radius: 30px 8px 30px 8px;
+        }
+        .transition-600 {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-surface-bright font-body-md text-on-surface selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface dark:bg-surface-container border-b border-outline-variant shadow-sm dark:shadow-none transition-600">
+<div class="flex justify-between items-center px-container-padding py-4 w-full max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface dark:text-inverse-on-surface tracking-tighter">
+                MarketPlace
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Shop</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">Deals</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-600 ease-in-out" href="#">New Arrivals</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-input-fill rounded-full px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm font-label-sm w-48" placeholder="Search products..." type="text"/>
+</div>
+<div class="flex items-center gap-4 text-on-surface">
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out text-primary border-b-2 border-primary pb-1 font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-32 pb-24 min-h-screen">
+<div class="max-w-7xl mx-auto px-container-padding">
+<!-- Header Section -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Your Wishlist</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your saved items and move them to your bag whenever you're ready.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-3 border border-outline text-on-surface-variant font-button-text text-button-text rounded-lg hover:bg-surface-variant transition-600">
+                        Share Wishlist
+                    </button>
+<button class="px-6 py-3 bg-primary-container text-white font-button-text text-button-text rounded-lg hover:brightness-110 transition-600 uppercase tracking-wider">
+                        Add All to Cart
+                    </button>
+</div>
+</div>
+<!-- Wishlist Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-md">
+<!-- Card 1 -->
+<div class="group relative bg-white rounded-[30px] p-6 cyber-glow border border-outline-variant transition-600 hover:-translate-y-2">
+<button class="absolute top-8 right-8 z-10 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-error hover:bg-error hover:text-white transition-600">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container">
+<img alt="White Watch" class="w-full h-full object-cover group-hover:scale-110 transition-600" data-alt="A premium minimalist white designer watch with a leather strap, captured in a high-key studio setting. The lighting is soft and diffused, highlighting the sleek curves and metallic accents. The aesthetic is clean and modern, following a bright light-mode UI style with subtle cyan highlights in the shadows. The atmosphere is sophisticated and technologically precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDijKsAeed1l9jy8yjuOIk7kHbsL6FSk_9qmaZMJxJPEwoZ6gvQPQmuUXLSHv-RywlEb7GDCkMnAWN65_1sYhotKUDC467E22cx5G-IFBMKAOI0plzZ0mkSx85pyjPaAYlChNkTMspXmfkrA6l2a7G294D-DYl9rTkmguhsKoc-N5ZGlvUi9ltU093ugSvwFQmqP9Zr0U032c9VSQ_IVCcclRxIS-itwudxuBybek1OBMpSDIBhozU_rngGyfqS4dfhaAnuyVv0HM_S"/>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Premium Tech</span>
+<span class="font-headline-lg text-xl font-bold">$299.00</span>
+</div>
+<h3 class="font-headline-lg text-lg text-on-surface group-hover:text-primary transition-600">Aura Chronograph v2</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-1">Limited edition ceramic casing with liquid-motion display.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-4 bg-primary-container text-white font-button-text text-button-text rounded-lg hover:brightness-110 transition-600 uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            Move to Cart
+                        </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-white rounded-[30px] p-6 cyber-glow border border-outline-variant transition-600 hover:-translate-y-2">
+<button class="absolute top-8 right-8 z-10 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-error hover:bg-error hover:text-white transition-600">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container">
+<img alt="Headphones" class="w-full h-full object-cover group-hover:scale-110 transition-600" data-alt="Modern studio headphones in a matte black finish with vibrant teal glowing accents. The setting is a futuristic minimalist workspace with soft ambient cyan light. The visual style is crisp and premium, emphasizing metallic textures and glass surfaces. The mood is energetic yet refined, aligning with a high-end cyber-fluid digital interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxVfR1WD9ekG1mgy68TE9tBYruVLWYaq3VMihiGJu0rcIXx2Klo2BJUTellDv9X-cWp3b5lBnl6X5hrllDU9Q5zM6YF-yXj4v-lHkwlhJFENKx0qkVa1IZK846633UfzdV5iR8BrV4x9-bjSwTFlGHJm6T10ZrNX3T_CGD2ffaj2clWBc_USo_TmWpCbhbjC5MBd0rgq-JvGOuHp7Kjcad-f29SNnGUvB8tXvTGLCtDBe_Eo4TixBC0LNbmbfKT8Twp5AIOnCcEHmj"/>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Audio Gear</span>
+<span class="font-headline-lg text-xl font-bold">$450.00</span>
+</div>
+<h3 class="font-headline-lg text-lg text-on-surface group-hover:text-primary transition-600">Sonic Stream X-1</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-1">Noise-canceling spatial audio with 60h battery life.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-4 bg-primary-container text-white font-button-text text-button-text rounded-lg hover:brightness-110 transition-600 uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            Move to Cart
+                        </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-white rounded-[30px] p-6 cyber-glow border border-outline-variant transition-600 hover:-translate-y-2">
+<button class="absolute top-8 right-8 z-10 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-error hover:bg-error hover:text-white transition-600">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container">
+<img alt="Perfume" class="w-full h-full object-cover group-hover:scale-110 transition-600" data-alt="A luxury geometric perfume bottle with holographic glass reflections. The bottle sits on a mirrored surface, reflecting a bright and airy environment filled with soft white and cyan lighting. The aesthetic is extremely high-end and modern, featuring glassmorphism elements and a clean corporate-futuristic vibe. The lighting is crisp, making the fluid inside look luminous." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6XH9hffhzjOwVHmilTLZLuehuWNamcFtVFSZS5yMOh8m9fsdMn7ruxeDNtA_ETfKPaODvzLv9_2mqvaGmtZkMXQnAxOBIt0XVrtKGa9HJBsAYSc3qFfhTc1xUk67PsqC6p0VEXfj_kFM7vvPLV2IbGErYkcbpScxIyOCDuOyoD6EA8Aosv5N3yoH8sVeAyAkPH_MTbonAqDYZ3oWphMaaWzZkkl_wI1VnIwM5KpMHWLLGRTeio9kVir8u5RdARhij15fbtXWOpB_n"/>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Fragrance</span>
+<span class="font-headline-lg text-xl font-bold">$125.00</span>
+</div>
+<h3 class="font-headline-lg text-lg text-on-surface group-hover:text-primary transition-600">Cyber Essence No. 5</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-1">A crisp, digital scent profile with notes of ozone and cedar.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-4 bg-primary-container text-white font-button-text text-button-text rounded-lg hover:brightness-110 transition-600 uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            Move to Cart
+                        </button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative bg-white rounded-[30px] p-6 cyber-glow border border-outline-variant transition-600 hover:-translate-y-2">
+<button class="absolute top-8 right-8 z-10 w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur rounded-full text-error hover:bg-error hover:text-white transition-600">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-surface-container">
+<img alt="Camera" class="w-full h-full object-cover group-hover:scale-110 transition-600" data-alt="A vintage-style modern mirrorless camera with a sleek silver and black finish. The setting is a minimalist studio with clean white backgrounds and soft cyan rim lighting. The style is professional and tech-forward, showcasing metallic precision and clean design. The composition is balanced and elegant, fitting the modern high-energy e-commerce branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDiAGCPUCJvSTTX37ukzr8NdFF3ydR9SIMgfRWLvFQwjAvCZlWeLNk86DPQYDJLU3vzYh_TIlq2Hyl39f7rrcmFPWc_HQ6Crn9k8eWpxQm2f_F2SCeIPPpZIFtanisbOW5rZNXhHX8rjOcCFwAFnaH5e-t4Yr09Tsi-9sqi8rdAywNG5BlMvChezdIoUKxTzFEmutRGxm8hLVtDS0G120uVmJHTNS_jN9aXsJu7XE1KInRlDy-rVF3U9qWsBftJb4_91R5XkUaAzB2"/>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Photography</span>
+<span class="font-headline-lg text-xl font-bold">$899.00</span>
+</div>
+<h3 class="font-headline-lg text-lg text-on-surface group-hover:text-primary transition-600">Lumea Mirrorless</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-1">4k 60fps capture with intelligent AI stabilization.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-4 bg-primary-container text-white font-button-text text-button-text rounded-lg hover:brightness-110 transition-600 uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+                            Move to Cart
+                        </button>
+</div>
+</div>
+<!-- Empty State Suggestion (Asymmetric Bento) -->
+<div class="lg:col-span-2 group relative overflow-hidden bg-gradient-to-br from-gradient-start to-gradient-end rounded-[30px] p-10 flex flex-col justify-center items-start text-white transition-600">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-10 -bottom-10 w-60 h-60 bg-white/5 rounded-full blur-2xl"></div>
+<div class="relative z-10 max-w-md">
+<h2 class="font-headline-lg text-3xl mb-4 leading-tight">Finding more items to love?</h2>
+<p class="font-body-md text-body-md text-white/80 mb-8">Explore our new arrivals and curated collections tailored to your digital lifestyle.</p>
+<button class="px-8 py-4 bg-white text-primary font-button-text text-button-text rounded-lg hover:scale-105 transition-600 uppercase tracking-widest">
+                            Continue Shopping
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface transition-600">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md px-container-padding py-panel-padding max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface dark:text-inverse-on-surface">MarketPlace</div>
+<p class="font-body-md text-body-md text-on-surface-variant">The future of curated commerce. High-energy, tech-forward, and built for you.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-bold text-on-surface mb-2">Company</h4>
+<a class="text-on-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-300" href="#">About Us</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-300" href="#">Contact</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-300" href="#">Help Center</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-bold text-on-surface mb-2">Legal</h4>
+<a class="text-on-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-300" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary dark:hover:text-primary-fixed transition-all duration-300" href="#">Terms of Service</a>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface mb-2">Connect</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center border border-border-low-light rounded-[20%] text-on-surface-variant hover:border-primary hover:text-primary transition-600" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center border border-border-low-light rounded-[20%] text-on-surface-variant hover:border-primary hover:text-primary transition-600" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-container-padding py-6 border-t border-outline-variant flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant/60">
+<div>© 2024 MarketPlace. All rights reserved.</div>
+<div class="flex gap-6">
+<span>Designed for the Future</span>
+<span>v2.0.4</span>
+</div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+        // Hover effect for product cards to animate glow intensity
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0 0 70px rgba(45, 160, 168, 0.3)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.boxShadow = '0 0 50px rgba(45, 160, 168, 0.15)';
+            });
+        });
+
+        // Simple button active state feedback
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.95)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

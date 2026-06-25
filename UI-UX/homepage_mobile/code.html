@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MarketPlace - Premium E-Commerce</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed-dim": "#6ed6de",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "tertiary-fixed-dim": "#00dddd",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#8bf3fb",
+                    "inverse-surface": "#303030",
+                    "gradient-start": "#5c6bc0",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#00105b",
+                    "on-tertiary-container": "#003030",
+                    "input-fill": "#eeeeee",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed-variant": "#004f54",
+                    "gradient-end": "#2da0a8",
+                    "outline-variant": "#bdc9ca",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#27378a",
+                    "surface-tint": "#00696f",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-fixed": "#00fbfb",
+                    "error-container": "#ffdad6",
+                    "surface-bg": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004f4f",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#002022",
+                    "on-error": "#ffffff",
+                    "outline": "#6d797a",
+                    "inverse-primary": "#6ed6de",
+                    "on-primary-container": "#003033",
+                    "primary": "#00696f",
+                    "tertiary-container": "#00a2a2",
+                    "border-low-light": "#cccccc",
+                    "surface": "#fbf9f8",
+                    "secondary": "#4858ab",
+                    "surface-container-low": "#f6f3f2",
+                    "primary-container": "#2da0a8",
+                    "surface-variant": "#e4e2e1",
+                    "on-surface-variant": "#3d494a",
+                    "inverse-on-surface": "#f3f0f0",
+                    "secondary-fixed": "#dee0ff",
+                    "tertiary": "#006a6a",
+                    "on-tertiary-fixed": "#002020",
+                    "on-secondary-fixed-variant": "#2f3f92",
+                    "surface-container": "#f0eded",
+                    "background": "#fbf9f8",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#96a5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "panel-padding": "30px",
+                    "container-padding": "40px",
+                    "gutter-md": "20px",
+                    "input-gap": "8px",
+                    "stack-xs": "3px",
+                    "stack-sm": "10px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "display-hero": ["Montserrat"],
+                    "button-text": ["Montserrat"],
+                    "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .scroll-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glow-box {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-panel-padding h-16 w-full bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_0_50px_rgba(45,160,168,0.3)]">
+<button class="active:scale-95 transition-transform duration-600 ease-in-out hover:opacity-80 transition-opacity duration-600 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary dark:text-primary-fixed-dim tracking-tight uppercase">MarketPlace</h1>
+<button class="active:scale-95 transition-transform duration-600 ease-in-out hover:opacity-80 transition-opacity duration-600 text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined">search</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-16 pb-24 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="px-panel-padding pt-6 pb-4">
+<div class="relative w-full aspect-[16/9] rounded-lg overflow-hidden glow-box active:scale-95 transition-transform duration-600">
+<img alt="Tech Gadgets Hero" class="w-full h-full object-cover" data-alt="A high-end cinematic photography of futuristic electronic gadgets and sleek hardware components arranged on a clean white surface. The scene is bathed in a soft cyan and teal ambient glow, reflecting the modern corporate tech aesthetic. The lighting is bright and airy, emphasizing the smooth textures and precision engineering of the items. Vibrant teal accents contrast with the minimalist white and light gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBObeir4Y0gO2APRFC25WEvxxIEzSlAe4hzUtaQdl77bWVSoiqU2ItB4I8W4lFeZMczEtTTMSgBRuYeKObRkyjM8u-E1EecHYktZ_xVOYx34ffPnr0twKs1AgyIX9QcXCPBGA4k9pje0txD_htPrka5pms7R6HM6PZrsgpaXhKpkK2uICPaqIpVjYCDyaJJmLi-Yquz10WsMRJVrxxznm27mJ2APEug6dVCf70i5vU2GPcrwmbdHWHV0pgignd6IRL1vYTMXJqz1Cqt"/>
+<div class="absolute inset-0 bg-gradient-to-r from-gradient-start/80 to-gradient-end/60 flex flex-col justify-end p-6">
+<span class="text-white font-button-text text-button-text uppercase tracking-widest mb-2">Summer 2024</span>
+<h2 class="text-white font-headline-lg-mobile text-headline-lg-mobile leading-tight mb-4">CYBER WEEK <br/>RELEASES</h2>
+<button class="w-fit px-6 py-2 bg-primary-container text-white font-button-text text-button-text uppercase rounded-lg active:scale-90 transition-transform duration-300">
+                        Explore Now
+                    </button>
+</div>
+</div>
+</section>
+<!-- Categories Grid (2-Column) -->
+<section class="px-panel-padding py-6">
+<div class="flex justify-between items-end mb-6">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Categories</h3>
+<span class="font-label-sm text-label-sm text-primary font-bold">See All</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Cat 1 -->
+<div class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-high active:scale-95 transition-transform duration-600">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up shot of a minimalist white smartwatch with a sleek silicon band, set against a clean studio background with soft teal shadows. The image captures a high-tech corporate lifestyle aesthetic, using a bright light-mode color palette. The composition is clean and focused, emphasizing the smooth curves and premium build quality of the wearable technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaUyGhy70f6M1dMllDtEMpSLTrOflZZus-CfWGyvobrXxvJRZvet2hLcbS5wqOmY95AmaLHiFQoVr_GjZAxuoHA8RLr1PMZVBBEMEIJdGJ2X1XozJA-OtoWeTU7S1jYR3BrlbJRi-IglaaK1lbbx6CSMQSdUcxotvL3MkDM7_ZRkYlPNyMH7nYQO3byDVvdI3JNdx_vE1qpzziqbi1_jvFkmRIX-iwX4GRKMdGetrL-jbGC5esbd0qYgt00vLBv9Ml4keRJNOOpR4t"/>
+<div class="absolute bottom-0 left-0 w-full p-4 glass-panel">
+<p class="font-button-text text-button-text text-on-surface font-bold uppercase">Electronics</p>
+</div>
+</div>
+<!-- Cat 2 -->
+<div class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-high active:scale-95 transition-transform duration-600">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A pair of vibrant athletic sneakers presented in a sharp, modern layout with dynamic lighting. The primary color is a deep red with teal accents on the soles. The scene is set in a minimalist bright environment, reflecting a high-energy e-commerce vibe. The focus is on the intricate textures of the fabric and the bold design of the footwear, creating an ambitious and tech-forward mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9YIoo7_2Ol8ss7qamqmurgjrhHz2BH0aFwTRBsFBddHAhn5jGFoPn9U7_bOtb0M3ZzI1lbWaSIASQVKlkivte9XPsbtUTU8_hLgaER8lQ8W50p6cArsNPJvDdhYsD5sJHJCOTKoxkLn99NBByMrC0vpi-ylJc4uie8Jd9P-X55jcZVnwTujpfgMKQW3-471f11J0wJD2tR45rPZYS-iMfcxew-Kso4GKbJ0smxIDsfJ8sfzhRr9EdnNxBGOnBkob25kQrJBYOTfGE"/>
+<div class="absolute bottom-0 left-0 w-full p-4 glass-panel">
+<p class="font-button-text text-button-text text-on-surface font-bold uppercase">Footwear</p>
+</div>
+</div>
+<!-- Cat 3 -->
+<div class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-high active:scale-95 transition-transform duration-600">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Premium over-ear noise-canceling headphones resting on a minimalist wooden stand in a bright, modern studio. The headphones are a matte black with subtle teal lighting highlights on the earcups. The background is a clean, neutral gray, emphasizing the sleek, modern design. The mood is sophisticated and technologically advanced, aligned with a premium corporate tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI51vgz9Rx--2vQkNnDPEu0glcQsvm-dRQGdWyUohl5Nu-iDGJzLoMYH6eKjaToTfV9751ZUjz5gSRRktoDuXhqx1om8A0tL7urH4A4nbaPfHj3yTP3IqbvUw87GTLrWyXjInOwM-LMw43_apD90xc8WfZoM06wnZ6217ONQuygRbMaRB4kN7Zj5agHhCKQaghPFhrzpnZB2l7APLo9SAQMg12A9icGvCdV3fDZGIS1K-tF-ZAYRy6zfgQd_qa8kkT07Pjga0us1gy"/>
+<div class="absolute bottom-0 left-0 w-full p-4 glass-panel">
+<p class="font-button-text text-button-text text-on-surface font-bold uppercase">Audio</p>
+</div>
+</div>
+<!-- Cat 4 -->
+<div class="group relative aspect-square rounded-lg overflow-hidden bg-surface-container-high active:scale-95 transition-transform duration-600">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A high-performance digital mirrorless camera with a professional lens kit, displayed on a clean white surface with sharp shadows. The lighting is bright and cinematic, with subtle teal lens flares adding a futuristic touch. The product is framed centrally, emphasizing its precision engineering and professional-grade materials. The overall aesthetic is clean, tech-focused, and modern corporate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBjqT5k4qRiqcp28UmfJlQ2KBfyw0t57E31lybWxfuO8owmxKpPZG20Fyfiq5T1KiFpdU_Cn98jC1vLnEEBEWJiWlI6picZBB657ZnC_3iOmKVQUoAIvZBhvxlC3859ep2XU6McINsf2r5qSR6g0hZKaGuADXU4uwS1NPdjIckMBIUuSIDTD7gtUtfYmWtULBepxpzr7WnxKwByOyLxRi5D3SfO27AGuK-pRDP-dIN7LZc4olG3CH8NKr0rsb77Pu1QQ0iOTYb2rSm"/>
+<div class="absolute bottom-0 left-0 w-full p-4 glass-panel">
+<p class="font-button-text text-button-text text-on-surface font-bold uppercase">Photo</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommendations Horizontal Scroll -->
+<section class="py-6">
+<div class="px-panel-padding mb-6">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Recommended for You</h3>
+</div>
+<div class="flex overflow-x-auto space-x-4 px-panel-padding pb-4 scroll-hide">
+<!-- Rec Item 1 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest rounded-lg p-3 shadow-sm active:scale-95 transition-transform duration-600">
+<div class="w-full h-40 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="Luxury designer sunglasses placed on a reflective glass surface. The lighting uses a sophisticated teal and cyan glow, creating high-contrast reflections. The scene is bright and minimalist, capturing a premium high-energy e-commerce feel. The focus is on the clarity of the lenses and the elegant frame design, conveying a sense of luxury and technological precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2nramWPVm3O35emaMZiMSi1JUvbbVqmkfWY66GxPoOw1XYyHnWEwc6kYZgtFu3jz_lZXwKxbg9XWdJvWtwy06ykDwrh9qnfTlFXed_BZKF9PLJe-kpYVNJcM3AwTnkocLTyQbWI-DZZIFx2gl0793rNSaPmi9T90NafsUw2QCijQjnduB8GIbHawKsO7dbke04XltHxQXBCUGDDXnPgCYDCKKjgvkEfofSLRxYtiWqhrPqc3xarcMI273igOIATKToqdZM-_OBToN"/>
+</div>
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Eyewear</p>
+<span class="material-symbols-outlined text-primary text-sm">star</span>
+</div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface mb-2 truncate">Prism Flow V2</h4>
+<p class="text-primary font-headline-lg-mobile text-headline-lg-mobile">$299.00</p>
+</div>
+<!-- Rec Item 2 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest rounded-lg p-3 shadow-sm active:scale-95 transition-transform duration-600">
+<div class="w-full h-40 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="A modern mechanical gaming keyboard with vibrant RGB lighting emitting a soft teal and purple glow. The keyboard is set on a dark desk with clean, bright ambient light hitting the keycaps. The photograph uses a shallow depth of field to emphasize the tactile textures of the device. The mood is high-energy, ambitious, and focused on tech enthusiasts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsDb52K-hikTukDw6rOddvXwGub5oVbpeawN7yr1OCWYp-7EYwdA8hngAda8S1j8LyIvGAAm8_qk2NJGHCoeTcEafskuU4WZxzwDyfWY-ALH62BwffsG2rI5NGhpP6cTzW-rIIFgJk5m1hy0pS1yo6Ps_EfJSMwsx17RO0PWtik9YtpeMa3Dzl7OYZAUQF4fuUg3yBx0J73ET2foQdMud46jBAZ3_Anh25h7luBFRg4sNUgMikxSe-wKwbbTDaAeJufwZNnjb7xD4l"/>
+</div>
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Gaming</p>
+<span class="material-symbols-outlined text-primary text-sm">star</span>
+</div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface mb-2 truncate">Neon Click TKL</h4>
+<p class="text-primary font-headline-lg-mobile text-headline-lg-mobile">$149.00</p>
+</div>
+<!-- Rec Item 3 -->
+<div class="flex-shrink-0 w-64 bg-surface-container-lowest rounded-lg p-3 shadow-sm active:scale-95 transition-transform duration-600">
+<div class="w-full h-40 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover" data-alt="A sleek, ultra-thin laptop in a metallic finish, open and displaying a vibrant teal interface. The device is placed on a minimalist white desk in a high-key lit studio. The environment is clean and professional, using a bright light-mode aesthetic with subtle cyan glows in the corners. The image highlights the premium materials and thin profile of the computer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZuPVRqiHL-w6pPmujHc1niIA43Z7vBcZ9ZZLqZF32vHbKWussiHunIKweKt4TRtkg5369kIpzm_2u55FMQDua4O5S6FEs8WLljF4SolMvSkMEesFN1hZpc-LbrNabFiGXn6WIZ0A5AKXMhRp0caHjIYONE5atacG_w6qanOlUB8UgDU14yO5K6r9QZpYpX7cnnyS1xsKR3WIM9QRPbgt3wGaSst4CbrMBTZ2fKOsSvdRYHnh0AVzLCIwzrshhvP0lBemF_SRlHMyK"/>
+</div>
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Computers</p>
+<span class="material-symbols-outlined text-primary text-sm">star</span>
+</div>
+<h4 class="font-body-md text-body-md font-bold text-on-surface mb-2 truncate">ZenBook Air Pro</h4>
+<p class="text-primary font-headline-lg-mobile text-headline-lg-mobile">$1,299</p>
+</div>
+</div>
+</section>
+<!-- Newsletter / Promo Banner -->
+<section class="px-panel-padding py-8">
+<div class="bg-gradient-to-br from-secondary to-primary p-8 rounded-lg glow-box">
+<h3 class="text-white font-headline-lg-mobile text-headline-lg-mobile mb-2">Join the Club</h3>
+<p class="text-white/80 font-body-md text-body-md mb-6">Get 20% off your first purchase and early access to drops.</p>
+<div class="flex flex-col space-y-3">
+<input class="bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-primary-fixed-dim" placeholder="Email Address" type="email"/>
+<button class="bg-white text-primary font-button-text text-button-text uppercase py-3 rounded-lg font-bold active:scale-95 transition-transform">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container-lowest dark:bg-inverse-surface shadow-[0_-10px_40px_rgba(45,160,168,0.15)] flex justify-around items-center w-full px-4 pb-safe h-20">
+<!-- Home Active -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1.5 active:scale-90 transition-transform duration-600 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Search Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90 transition-transform duration-600 ease-in-out" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<!-- Cart Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90 transition-transform duration-600 ease-in-out" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+</a>
+<!-- Account Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90 transition-transform duration-600 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</a>
+</nav>
+<!-- Micro-interactions Script -->
+<script>
+        // Simple scroll reveal effect for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

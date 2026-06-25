@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>MarketPlace | Discover</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#6ed6de",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#8bf3fb",
+                        "inverse-surface": "#303030",
+                        "gradient-start": "#5c6bc0",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#00105b",
+                        "on-tertiary-container": "#003030",
+                        "input-fill": "#eeeeee",
+                        "surface-container-high": "#eae8e7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "gradient-end": "#2da0a8",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#27378a",
+                        "surface-tint": "#00696f",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed": "#00fbfb",
+                        "error-container": "#ffdad6",
+                        "surface-bg": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002022",
+                        "on-error": "#ffffff",
+                        "outline": "#6d797a",
+                        "inverse-primary": "#6ed6de",
+                        "on-primary-container": "#003033",
+                        "primary": "#00696f",
+                        "tertiary-container": "#00a2a2",
+                        "border-low-light": "#cccccc",
+                        "surface": "#fbf9f8",
+                        "secondary": "#4858ab",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#2da0a8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#3d494a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary": "#006a6a",
+                        "on-tertiary-fixed": "#002020",
+                        "on-secondary-fixed-variant": "#2f3f92",
+                        "surface-container": "#f0eded",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#96a5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "panel-padding": "30px",
+                        "container-padding": "40px",
+                        "gutter-md": "20px",
+                        "input-gap": "8px",
+                        "stack-xs": "3px",
+                        "stack-sm": "10px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-hero": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-bright font-body-md text-on-surface min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_0_50px_rgba(45,160,168,0.3)] flex justify-between items-center px-panel-padding h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform duration-600 ease-in-out" onclick="toggleDrawer()">menu</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary tracking-tight uppercase">MarketPlace</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity duration-600 active:scale-95 transition-transform">search</button>
+</div>
+</header>
+<!-- Sidebar / NavigationDrawer -->
+<div class="fixed inset-0 bg-black/40 z-[55] opacity-0 pointer-events-none transition-opacity duration-500" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed inset-y-0 left-0 w-80 z-[60] rounded-r-xl bg-surface-container-lowest shadow-[20px_0_60px_rgba(0,0,0,0.1)] -translate-x-full transition-transform duration-600 ease-in-out flex flex-col h-full p-panel-padding" id="navigation-drawer">
+<div class="flex flex-col gap-2 mb-8">
+<div class="w-16 h-16 rounded-full bg-primary-container mb-2 overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional studio headshot of a young tech explorer with a warm smile, set against a clean, soft-lit background that reflects a high-end corporate aesthetic. The lighting is diffused and modern, using a color palette of soft teals and crisp whites to match the premium e-commerce interface style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJJlc0MN49G95Nqwokrf5rCCp-maWdjwKmFtdwvdEtmC2lCDdQdHcxfExYvQGACjhzW9hqYjsn4CpvlvNXuLh1bAfuhKVs93qKka6AbzuwRVsgfqn-IVYOlKQlqLafC99f-I_PnMe6Kv_jSUCQFOY4oTEIS-FU4efQkPrCRT9-VgmLJrtZ9ULPHBO_1z-OJj3L2msd7E8fWFXcuLsAp5kTC4mr39eMDMn4rJLK1IZY9PFuNLZ9XJjm348tBBB83aY1otQ04lj-nDSa"/>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary">Cyber Explorer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Premium Member</p>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-4 px-4 py-3 text-primary font-bold bg-surface-container-high rounded-lg transition-all duration-600" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-body-md text-body-md">All Categories</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-all duration-600" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-body-md text-body-md">New Arrivals</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-all duration-600" href="#">
+<span class="material-symbols-outlined">local_fire_department</span>
+<span class="font-body-md text-body-md">Hot Deals</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-all duration-600" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-all duration-600" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant/30">
+<p class="text-xs text-outline font-medium tracking-widest uppercase">V1.0.4</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-20 pb-28 px-4 max-w-screen-xl mx-auto">
+<!-- Header Section -->
+<section class="mb-6 px-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-1">New Arrivals</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Curated high-performance gear for your journey.</p>
+</section>
+<!-- Product 2-Column Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm active:scale-95 transition-transform duration-600 ease-in-out">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up shot of a sleek, vibrant red athletic sneaker placed on a clean white geometric platform. The scene is illuminated by crisp, futuristic cyan lighting that casts soft professional shadows, aligning with the tech-forward, high-energy e-commerce brand identity. Minimalist environment with high-contrast finishes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy5kBfSJa5f5eL3PFi1OSmh6OVMNMXEGD8KhYhse8vMOW1yqWHC5WRYxvmxneglPRttoXkX1efboUPzHLLKztvf0j2-TJBrt_Q_ikEdpFtBxlHoljrUTR3Eop31oG-_LKMqU0vdgj7RNsck7FvkpyGEwJwbvUI2XdMBJnULeZGXIuTm2GeWezjt6y9-M53LzLrSNYo2flOpWSbc9qWch-oYL8yeLJinD8P5OCw0FBw5G1b0xVV8YQwsBUml4G6PLv08zhvj4HSa1Ac"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-card flex items-center justify-center text-primary shadow-sm active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 glass-card rounded text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.8
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Vortex Runner Pro</h3>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg-mobile text-[16px] text-primary">$129.00</span>
+<button class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm active:scale-95 transition-transform duration-600 ease-in-out">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A pair of premium black over-ear headphones displayed on a metallic stand in a darkly lit studio with intense teal rim lighting. The aesthetic is extremely modern and professional, highlighting the metallic textures and sleek curves of the product. The atmosphere is cinematic and high-tech, fitting for a luxury marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_Oyor23CkYtod0tg3jRCzNz2fI0Wx4_IFFbdQvbEznfSLpSdDny-db5G79JSPjwr-Ob4f38WDG5fVxJC5hokG5IPYAeW4Wyu9MO58lCDNI7COVOA0RmHqQtXB5p2DCZtjM33TOyUIgo1_ztUhcvvM_m8ygYAcjvMcS3Zu5IlN_oyrEYkpOj_D4AoYZfozeR7Gwq9z3EPmW8Vv1o98UQcW0KrxUWlDKFcKoUOjqzsa4ZoncBxWpBgJD7FDFvkNzbP9rqqZd1e4IhR-"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-card flex items-center justify-center text-primary shadow-sm active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 glass-card rounded text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.9
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Sonic Boom X1</h3>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg-mobile text-[16px] text-primary">$249.50</span>
+<button class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm active:scale-95 transition-transform duration-600 ease-in-out">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A minimalist white smart watch shown in a top-down view on a soft gray surface. The scene is bright and airy with high-key lighting that emphasizes the clean industrial design. Subtle teal highlights on the digital interface provide a pop of brand color. The overall vibe is pristine, modern corporate, and technologically sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOFa4delQAo9vMYSA1enVf-iydkg8fst7-C44RcBJQ3Alsz05ksn9OCEucM1hdxmyNPLjA1V5TopVYbulC55cxbM9yY2jqTg2mfILWzgS9HlulwQVHsWJJBnUaR4sy3p05w0wzXGRL_P-1_2G5OtUU74D60XJpjNDd4btj-wpl-t6m05bZsccbtgdFFfZqlKxwY10hmsgAszdhI0Q8Ujh4nEM2PCow7GtKPB6RlUdnfJY13p6qqLgxVZ17BAirhgBmeVmwAldJ7JXF"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-card flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 glass-card rounded text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.5
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Chronos Smart V2</h3>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg-mobile text-[16px] text-primary">$180.00</span>
+<button class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm active:scale-95 transition-transform duration-600 ease-in-out">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A rugged, matte black outdoor backpack captured in an urban setting with cinematic backlighting. The lighting creates a strong silhouette and highlights the durable fabric textures. The mood is ambitious and adventurous, with deep shadows and sharp highlights that reflect a premium, tech-forward product presentation for a modern audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe40YtREiT1tLu40xAdvKNjnmzcoc8iMoZv3zZ7YQfoT5D6kcbxG3SyzD0V1Ipk5SI8tjzMEjnrzRYc5uqNJ0pOpuQyvOOV5rV8SkR3-tDprFiTmHctl34Grris8rVpUGIovirhuwijTdWUov-qU13ofY_pGWyXu6HLTu7ElMqiqi6LTfkL342l2qN-tuPgdd4B4_ihZkCD9pL-XB7iqA7q8Le3rEENsWPr5OeZ05FGWk75J4MYZBXgEJP16MEUmGY4sHIgblF9aVL"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-card flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 glass-card rounded text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.7
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Apex Nomad Pack</h3>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg-mobile text-[16px] text-primary">$89.00</span>
+<button class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm active:scale-95 transition-transform duration-600 ease-in-out">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A retro-style instant camera in a bright cyan finish, positioned against a minimalist geometric backdrop of contrasting light grays. The scene is lit with soft, professional studio lighting that emphasizes the smooth curves and playful colors of the device. The visual style blends nostalgia with modern corporate clean aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEvEAXAfLfAV2qa-cklmXQnQ41I4DlmGGbmX1H4ssWxAON_VZbRoCNrIhZEfSbxoD6rtVet_GUWQs17tOpZ_7FIoENuRPZVl-vcLGjgNETuTzEBmWNjHQZDOrjMnJsk99xxPIJH37uMBqgqKkP8PabDp2SJjIcdwglq9x0Bd63ao75Hg8jFj8CGUhBfDseH3y07kuGukupUtVeiw2OuE7ixbRg8lxP_wjfVFElLjaJ9AXbIRMwMSpoeG4lhoAoSbFBKLKoSsGZZHQb"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-card flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 glass-card rounded text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.6
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Retro Snap 500</h3>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg-mobile text-[16px] text-primary">$75.00</span>
+<button class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm active:scale-95 transition-transform duration-600 ease-in-out">
+<div class="relative aspect-square overflow-hidden bg-surface-container">
+<img alt="Product" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A pair of high-performance black running shoes with neon teal accents, set on a dark, reflective track under a spotlight. The lighting is dramatic and focused, highlighting the mesh texture and aerodynamic design. The composition is dynamic and tech-forward, appealing to serious athletes and tech enthusiasts alike." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0c0TiwU8cYUADWrAeU_GOKwMUtL0e0J9TP1IFPHFK1fmK9iSPBJx0b2qTMYVA6c_aHo-ibaHPZtZR5mneQfqzw84hpGHaSNZczJJj38st5RxeNkdZOTZb_mJouzgPpBwDtFSL0JzeHoA-Ag2Ezarx4iM0kMv21iT0Kp8yBoqSWtdmw7wDEQ7aqSsCxOFX5_SYdqSSvY8oN3GqUddBw1E_7zK_9so2aTF5Aj6wR52AyoSxy9zRayxU_ORd5jCoU5ZlyHO8QJuLemMM"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-card flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 glass-card rounded text-[10px] font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.9
+                    </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Stealth Dash XT</h3>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg-mobile text-[16px] text-primary">$155.00</span>
+<button class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Filter & Sort Floating Button -->
+<div class="fixed bottom-24 right-6 z-50">
+<button class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gradient-start to-gradient-end text-on-primary rounded-full shadow-2xl active:scale-90 transition-transform duration-600 ease-in-out font-button-text text-button-text uppercase tracking-widest">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+            Filter
+        </button>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_-10px_40px_rgba(45,160,168,0.15)] rounded-t-xl flex justify-around items-center w-full px-4 pb-safe h-20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1.5 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Account</span>
+</a>
+</nav>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('navigation-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            
+            if (drawer.classList.contains('-translate-x-full')) {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // Add subtle parallax/hover effect to cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = card.getBoundingClientRect();
+                const x = (e.clientX - left) / width;
+                const y = (e.clientY - top) / height;
+                
+                card.style.transform = `scale(1.02) perspective(1000px) rotateX(${(y - 0.5) * 5}deg) rotateY(${(x - 0.5) * -5}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body></html>

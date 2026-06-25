@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fbf9f8;
+            overflow-x: hidden;
+        }
+        .cyber-glow {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.15);
+        }
+        .asymmetric-panel {
+            border-radius: 30px 8px 30px 8px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .stepper-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .stepper-btn:active {
+            transform: scale(0.9);
+        }
+        .background-animate {
+            background: linear-gradient(-45deg, #fbf9f8, #f0eded, #e4e2e1, #dee0ff);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#6ed6de",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#8bf3fb",
+                        "inverse-surface": "#303030",
+                        "gradient-start": "#5c6bc0",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#00105b",
+                        "on-tertiary-container": "#003030",
+                        "input-fill": "#eeeeee",
+                        "surface-container-high": "#eae8e7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "gradient-end": "#2da0a8",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#27378a",
+                        "surface-tint": "#00696f",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed": "#00fbfb",
+                        "error-container": "#ffdad6",
+                        "surface-bg": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002022",
+                        "on-error": "#ffffff",
+                        "outline": "#6d797a",
+                        "inverse-primary": "#6ed6de",
+                        "on-primary-container": "#003033",
+                        "primary": "#00696f",
+                        "tertiary-container": "#00a2a2",
+                        "border-low-light": "#cccccc",
+                        "surface": "#fbf9f8",
+                        "secondary": "#4858ab",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#2da0a8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#3d494a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary": "#006a6a",
+                        "on-tertiary-fixed": "#002020",
+                        "on-secondary-fixed-variant": "#2f3f92",
+                        "surface-container": "#f0eded",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#96a5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "panel-padding": "30px",
+                        "container-padding": "40px",
+                        "gutter-md": "20px",
+                        "input-gap": "8px",
+                        "stack-xs": "3px",
+                        "stack-sm": "10px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-hero": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="background-animate min-h-screen text-on-surface">
+<!-- Top Navigation Shell -->
+<nav class="bg-surface border-b border-outline-variant sticky top-0 z-50 shadow-sm">
+<div class="flex justify-between items-center px-container-padding py-4 w-full max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface tracking-tighter">
+                MarketPlace
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600" href="#">Shop</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600" href="#">Categories</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600" href="#">Deals</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600" href="#">New Arrivals</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform duration-600">favorite</button>
+<div class="relative">
+<button class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform duration-600">shopping_cart</button>
+<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
+</div>
+<button class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform duration-600">account_circle</button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-container-padding py-12">
+<header class="mb-12">
+<h1 class="font-headline-lg text-headline-lg mb-2">Shopping Cart</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Review your selection before finalizing your order.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-md items-start">
+<!-- Product List Section -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Cart Item 1 -->
+<div class="bg-surface-container-lowest rounded-[30px] p-6 cyber-glow border border-white flex flex-col md:flex-row items-center gap-6 group transition-all duration-600 hover:translate-x-1">
+<div class="w-full md:w-32 h-32 rounded-2xl overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600" data-alt="A minimalist high-tech white smartwatch with a sleek silicone band, resting on a polished marble surface. The lighting is crisp and cool-toned, emphasizing the metallic textures and fluid digital interface of the device. High-end e-commerce photography with a bright, clean, cyan-tinted atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB2LMuty9VARhz1IwMC_7cgNRBSxkRia0kKIuZ8RJ2c8E-aNOtDDJHwrqB-LOyydoawf_bOscrFx2ShLAO1mHOrnbudrqDt2dZJquGvu_gsefbXbeByOrnzbUErclK5-EOgA-SNAJG4W6e09InjSbUIr9EBtGMfx_WUlk8un6tKqwa2CtK_rtzZeC33IGcuPcQqKdBKVCry_LVJrEEPEx8PYEbFnTMd-FLMqivwklHi7MHADbTdH8PJMNKdeJ6bKOc2sUqosHQYAST"/>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-lg text-lg font-bold">Quantum Series S3</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors">delete</button>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Digital Hardware / Slate Gray</p>
+<div class="flex items-center justify-between mt-4">
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-input-fill rounded-lg p-1">
+<button class="stepper-btn w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="px-4 font-bold text-body-md font-body-md">1</span>
+<button class="stepper-btn w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="font-bold text-primary font-headline-lg text-lg">$349.00</div>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="bg-surface-container-lowest rounded-[30px] p-6 cyber-glow border border-white flex flex-col md:flex-row items-center gap-6 group transition-all duration-600 hover:translate-x-1">
+<div class="w-full md:w-32 h-32 rounded-2xl overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600" data-alt="Professional grade matte black wireless over-ear headphones displayed in a tech-forward studio setting. Soft cyan neon lights reflect off the curved edges, creating a vibrant depth. The background is a dark, cinematic grey, highlighting the sleek industrial design and premium leather textures. High-contrast modern UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQORPt4S0lH6CnEpCA3orI-ojDigFeftxMgVgfOTh7Mrwu1Y9D5tbI4v3ChxgZqqQaOomphYrai0rJSX-R0Kv4-rPivMD5UjnnUneK0ky_mgkofzoKb-7i72l37YplKY-egN8baCFL6Bh-mLTbb5Cruf9Yb78WDek7gFnjh5HLjBQ0brf6S7lFi5kubNj2ko3GQ9RQTKWHu-iKsTWbBBO0nRNXb8SdYDN1EZXFhcCrOwZu6Nti9oV7q2yXoBac66CoOVWaGADmbBpl"/>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-lg text-lg font-bold">SonicWave Pro</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors">delete</button>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Audio / Midnight Matte</p>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center bg-input-fill rounded-lg p-1">
+<button class="stepper-btn w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="px-4 font-bold text-body-md font-body-md">1</span>
+<button class="stepper-btn w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="font-bold text-primary font-headline-lg text-lg">$599.00</div>
+</div>
+</div>
+</div>
+<!-- Cart Item 3 -->
+<div class="bg-surface-container-lowest rounded-[30px] p-6 cyber-glow border border-white flex flex-col md:flex-row items-center gap-6 group transition-all duration-600 hover:translate-x-1">
+<div class="w-full md:w-32 h-32 rounded-2xl overflow-hidden bg-surface-container flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600" data-alt="A modern, high-precision mechanical keyboard with translucent keycaps and vivid teal backlighting. The design is sleek and tech-forward, positioned on a dark glass desk that reflects the vibrant LED glows. The atmosphere is energetic and futuristic, perfect for a high-end digital workstation. Cinematic focus on macro details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG3_9BBVE3jjFC6-XbSu1FvhN3RFOZ1i7q9DdyncPRy5tx_V7JIJ5a_FBWAlmzGX9lU7ylP-WbSA_g63onrB1-GaJ0CWvle7o1DyWs3V-_64jyGiefWvtkljErWfgEgH7G8da01jvFmcwU7JaeDwtun2Ocrty9MTVfyFd7WOT0niUXKB8orEmc49EABlklzxKXL0ks5ikDVQySXe0CtDMem_7h5JPt2O8wvZvexiSh8vgwGl1mgPqwVqtz-AFIp0Gxeuvt4fu_zUK8"/>
+</div>
+<div class="flex-grow space-y-2">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-lg text-lg font-bold">Vortex Mechanical Hub</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors">delete</button>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Peripherals / RGB Cyber</p>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center bg-input-fill rounded-lg p-1">
+<button class="stepper-btn w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="px-4 font-bold text-body-md font-body-md">1</span>
+<button class="stepper-btn w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+<div class="font-bold text-primary font-headline-lg text-lg">$189.00</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Order Summary Section -->
+<aside class="lg:col-span-4 sticky top-24">
+<div class="bg-white rounded-[30px] p-8 cyber-glow border border-white overflow-hidden relative">
+<!-- Decorative Gradient Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-gradient-start to-gradient-end opacity-10 rounded-bl-[100px]"></div>
+<h2 class="font-headline-lg text-2xl mb-8">Order Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-bold text-on-surface">$1,137.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Estimated Tax</span>
+<span class="font-bold text-on-surface">$91.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-primary font-bold uppercase tracking-wider">Free</span>
+</div>
+<div class="pt-4 border-t border-outline-variant flex justify-between items-end">
+<span class="font-headline-lg text-lg font-bold">Total</span>
+<div class="text-right">
+<span class="text-on-surface-variant text-xs block mb-1">USD</span>
+<span class="font-headline-lg text-3xl font-black text-primary">$1,228.00</span>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<button class="w-full bg-gradient-to-r from-gradient-start to-gradient-end py-4 rounded-lg font-button-text text-button-text text-white uppercase tracking-[2px] transition-all duration-600 hover:brightness-110 active:scale-95 shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                            Proceed to Checkout
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="bg-input-fill rounded-lg p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<div>
+<p class="text-[11px] font-bold text-on-surface uppercase mb-1">Secure Checkout</p>
+<p class="text-[10px] text-on-surface-variant leading-tight">Your transaction is encrypted with 256-bit military-grade security.</p>
+</div>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="mt-8">
+<label class="block text-[11px] font-bold text-on-surface-variant uppercase mb-2 ml-1">Promo Code</label>
+<div class="flex gap-2">
+<input class="flex-grow bg-input-fill border-none rounded-lg px-4 py-2 font-body-md text-body-md focus:ring-2 focus:ring-primary/20" placeholder="ENTER CODE" type="text"/>
+<button class="px-6 bg-on-surface text-white rounded-lg font-button-text text-button-text uppercase transition-all duration-300 hover:bg-primary">Apply</button>
+</div>
+</div>
+</div>
+<!-- Footer Links under Summary -->
+<div class="mt-6 px-4 flex justify-between items-center text-[11px] text-on-surface-variant font-medium">
+<a class="hover:text-primary transition-colors" href="#">Continue Shopping</a>
+<a class="hover:text-primary transition-colors" href="#">Need Help?</a>
+</div>
+</aside>
+</div>
+</main>
+<!-- Global Footer -->
+<footer class="bg-surface-container-highest mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md px-container-padding py-panel-padding max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1 space-y-4">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface tracking-tighter">MarketPlace</div>
+<p class="font-body-md text-body-md text-on-surface-variant pr-4">Redefining the digital shopping experience through precision and motion.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary uppercase text-xs tracking-widest">Company</h4>
+<div class="flex flex-col gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="#">Contact</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="#">Careers</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary uppercase text-xs tracking-widest">Support</h4>
+<div class="flex flex-col gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="#">Help Center</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary uppercase text-xs tracking-widest">Connect</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-outline-variant rounded-xl flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 border border-outline-variant rounded-xl flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+<p class="font-label-sm text-[11px] text-on-surface-variant mt-4 opacity-70">© 2024 MarketPlace. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for stepper buttons
+        document.querySelectorAll('.stepper-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const span = this.parentElement.querySelector('span:not(.material-symbols-outlined)');
+                let val = parseInt(span.innerText);
+                if (this.querySelector('.material-symbols-outlined').innerText === 'add') {
+                    span.innerText = val + 1;
+                } else if (val > 1) {
+                    span.innerText = val - 1;
+                }
+            });
+        });
+
+        // Simple parallax effect for images on hover
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = img.getBoundingClientRect();
+                const x = (e.clientX - left) / width;
+                const y = (e.clientY - top) / height;
+                img.style.transform = `scale(1.1) translate(${(x - 0.5) * 10}px, ${(y - 0.5) * 10}px)`;
+            });
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = `scale(1) translate(0, 0)`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MarketPlace Wishlist</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#6ed6de",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#8bf3fb",
+                        "inverse-surface": "#303030",
+                        "gradient-start": "#5c6bc0",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#00105b",
+                        "on-tertiary-container": "#003030",
+                        "input-fill": "#eeeeee",
+                        "surface-container-high": "#eae8e7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "gradient-end": "#2da0a8",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#27378a",
+                        "surface-tint": "#00696f",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed": "#00fbfb",
+                        "error-container": "#ffdad6",
+                        "surface-bg": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002022",
+                        "on-error": "#ffffff",
+                        "outline": "#6d797a",
+                        "inverse-primary": "#6ed6de",
+                        "on-primary-container": "#003033",
+                        "primary": "#00696f",
+                        "tertiary-container": "#00a2a2",
+                        "border-low-light": "#cccccc",
+                        "surface": "#fbf9f8",
+                        "secondary": "#4858ab",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#2da0a8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#3d494a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary": "#006a6a",
+                        "on-tertiary-fixed": "#002020",
+                        "on-secondary-fixed-variant": "#2f3f92",
+                        "surface-container": "#f0eded",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#96a5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "panel-padding": "30px",
+                        "container-padding": "40px",
+                        "gutter-md": "20px",
+                        "input-gap": "8px",
+                        "stack-xs": "3px",
+                        "stack-sm": "10px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-hero": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f8;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- Top Navigation Header -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_0_50px_rgba(45,160,168,0.3)] flex justify-between items-center px-panel-padding h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-600 ease-in-out text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary tracking-tight uppercase">MarketPlace</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="active:scale-95 transition-transform duration-600 ease-in-out text-primary">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<!-- Sidebar / Drawer (Hidden by default, triggered by menu) -->
+<div class="fixed inset-0 z-[60] pointer-events-none overflow-hidden" id="drawer">
+<div class="absolute inset-0 bg-on-background/20 opacity-0 transition-opacity duration-500 pointer-events-auto" id="drawer-overlay"></div>
+<aside class="fixed inset-y-0 left-0 w-80 bg-surface-container-lowest shadow-[20px_0_60px_rgba(0,0,0,0.1)] rounded-r-xl transition-transform duration-500 -translate-x-full flex flex-col p-panel-padding pointer-events-auto" id="drawer-content">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<p class="font-bold text-primary font-body-md text-body-md">Cyber Explorer</p>
+<p class="text-outline text-xs">Premium Member</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 p-3 text-on-surface hover:bg-surface-container rounded-lg transition-all duration-600" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-body-md text-body-md">All Categories</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface hover:bg-surface-container rounded-lg transition-all duration-600" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-body-md text-body-md">New Arrivals</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface hover:bg-surface-container rounded-lg transition-all duration-600" href="#">
+<span class="material-symbols-outlined">local_fire_department</span>
+<span class="font-body-md text-body-md">Hot Deals</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface hover:bg-surface-container rounded-lg transition-all duration-600" href="#">
+<span class="material-symbols-outlined">package_2</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface hover:bg-surface-container rounded-lg transition-all duration-600" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md text-body-md">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-8">
+<p class="text-xs text-outline-variant uppercase tracking-widest">Version V1.0.4</p>
+</div>
+</aside>
+</div>
+<!-- Main Content Area -->
+<main class="pt-24 pb-28 px-4 md:px-8 max-w-4xl mx-auto min-h-screen">
+<!-- Wishlist Header -->
+<div class="flex justify-between items-end mb-8 px-2">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">My Wishlist</h2>
+<p class="text-outline text-body-md font-body-md">6 Items Saved</p>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg bg-primary-container text-on-primary-container shadow-sm active:scale-95 transition-all" id="grid-view-btn">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-high text-on-surface-variant active:scale-95 transition-all" id="list-view-btn">
+<span class="material-symbols-outlined">view_list</span>
+</button>
+</div>
+</div>
+<!-- Wishlist Grid/List Container -->
+<div class="grid grid-cols-2 gap-4 transition-all duration-600" id="wishlist-container">
+<!-- Wishlist Card 1 -->
+<div class="wishlist-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-600 border border-transparent hover:border-primary-fixed-dim group">
+<div class="relative h-48 bg-surface-container">
+<img alt="Product Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" data-alt="A high-end minimalist white ceramic smart watch displayed on a textured stone surface under bright, clean, studio lighting. The aesthetic is extremely modern and corporate, utilizing a bright light-mode color palette with soft cyan reflections. The product feels luxurious and technologically advanced with sharp focus and cinematic depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EUR6f5Mo7gsN5szFQkj8JL6yDQ2a_EF-RbTc-3uO8v4pjtJJIUlWJ7V-RYWzeGZtHkYErdxMLBKdSueQDT45gaBpMEmkPeIZOc2oXxivq57zlQb_e8_ovv1vXCRn9o6BR1fXJjTuJOBwHYEDI93F5Bv1N7UY9hqAsOc5bRaTWlzeDT70CP9QpahMgZiil7rqAbfaBCaabY03JVkXFMy1nVfpZpICtEiQfmt3xKPL0wOA9AT87-7dKGi2qRj0-4xeiBKn_Vlrx0Aw"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-panel flex items-center justify-center text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+</button>
+<div class="absolute bottom-2 left-2 px-2 py-1 bg-primary text-white text-[10px] font-bold rounded uppercase tracking-wider">In Stock</div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-bold text-on-surface mb-1 truncate font-body-md text-body-md">Nexus Smart Watch</h3>
+<p class="text-primary font-bold text-lg mb-4">$299.00</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary font-button-text text-button-text rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:opacity-90">
+                        Move to Cart
+                    </button>
+</div>
+</div>
+<!-- Wishlist Card 2 -->
+<div class="wishlist-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-600 border border-transparent hover:border-primary-fixed-dim group">
+<div class="relative h-48 bg-surface-container">
+<img alt="Product Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" data-alt="Professional over-ear wireless headphones in a sleek matte black and teal finish, resting on a clean white glossy pedestal. The scene is illuminated with vibrant cyan ambient glows and high-key studio lighting. The style is premium and tech-focused, representing a modern e-commerce interface with crisp details and energetic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6oQNHNf9uzpfvIxIgh9hG7NH_Y1hOyvI6nzbkOhxWnbPCd07a8gsiruDJ2JRs78NGc3AGhTrlU8_VxgSVw_O78I1czIXIoLiVRmuwNtNRQ5BPucF2LS0VGv0zL_ecX4gfoeTHBuaLvJfUIWz0HPG60CwZPxgV1hjM9kkp_yuef4wAM54m1xW1xvPuW-1tApGu5kqd15hpjQ_AstnNuD-1ZXfQwU5L7vudhKkbQZaE8NjMEcLV9RlB_iCmDVtkTt3SoSGLhrLWwVpw"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-panel flex items-center justify-center text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+</button>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-bold text-on-surface mb-1 truncate font-body-md text-body-md">Aero Pro Audio</h3>
+<p class="text-primary font-bold text-lg mb-4">$189.99</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary font-button-text text-button-text rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:opacity-90">
+                        Move to Cart
+                    </button>
+</div>
+</div>
+<!-- Wishlist Card 3 -->
+<div class="wishlist-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-600 border border-transparent hover:border-primary-fixed-dim group">
+<div class="relative h-48 bg-surface-container">
+<img alt="Product Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" data-alt="An elegant leather bound notebook and a precision mechanical pencil lying on a marble desktop. The lighting is soft and natural, emphasizing a bright, minimalist modern aesthetic. The color palette is composed of neutrals with subtle teal accents. The mood is sophisticated, organized, and creative, captured in high fidelity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP6OJ_toYMWfPYaeXVPOVlfTE-jOF4pbw8KIww4O68j33gq67c2cpJ-gXcjrvaqdUiO5cLvtfrbBLUuRlGfRmN9Qmj5wfcVDJETcS1aDJl0Akf1JQSapuzHYuOM6RdY8Yc3HknKPilcS3V5oCichXuUEWTRGi56aT-rEaaKMaTyxFxTLB8rPX0LGpG_LZ7fEbLvSYkhNAo2Om78_8MzeqDEkEx_adve_7mT9_dxvWUKFHzByd9qnhoeg0Irn7qeqd8hqElGNbJHmuc"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-panel flex items-center justify-center text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+</button>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-bold text-on-surface mb-1 truncate font-body-md text-body-md">Designer Journal</h3>
+<p class="text-primary font-bold text-lg mb-4">$45.00</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary font-button-text text-button-text rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:opacity-90">
+                        Move to Cart
+                    </button>
+</div>
+</div>
+<!-- Wishlist Card 4 -->
+<div class="wishlist-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-600 border border-transparent hover:border-primary-fixed-dim group">
+<div class="relative h-48 bg-surface-container">
+<img alt="Product Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" data-alt="A sleek, metallic silver ergonomic computer mouse placed on a dark grey felt desk mat. The scene is lit with a dramatic cyan side light that creates sharp highlights and shadows. This is a tech-forward, high-precision image that aligns with a premium marketplace vibe, using high-key lighting for a clean light-mode look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZgn57ZvA0uK0aoF1v16ocLCsW95IUjxVW523Ojm6NBG2TiQDIzKUvIEvxqi2SpCUztOzUSx4nw1sPx50t9ZKIZFmGah1tqfOy_47WObKABCCTnydEaU7SHcTOuPWkBaojfjOb58QhdMczxrp-_1r0_qH_Hx73z_3esiz8imLUQMUpft_x1eRU_Gd3A8ae1BDSPoq8zeUe59BunVtYrbzWWSX7ULw5xVhPr5aV9AHLiAu90g_RLLj1LD0Ij772MwB1TuthHLP0cQ70"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-panel flex items-center justify-center text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+</button>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-bold text-on-surface mb-1 truncate font-body-md text-body-md">Precision Mouse X</h3>
+<p class="text-primary font-bold text-lg mb-4">$89.00</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary font-button-text text-button-text rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:opacity-90">
+                        Move to Cart
+                    </button>
+</div>
+</div>
+<!-- Wishlist Card 5 -->
+<div class="wishlist-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-600 border border-transparent hover:border-primary-fixed-dim group">
+<div class="relative h-48 bg-surface-container">
+<img alt="Product Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" data-alt="A vintage style instant camera with a modern teal accent color, set against a bright, airy white background. The photo is taken with a professional studio setup, featuring soft shadows and vibrant, clean colors. The overall aesthetic is a blend of retro-chic and modern tech-forward minimalism, perfect for a high-end wishlist UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3e41io2lW2zeHhQg1T7Tpyo4HrdnGSig7Diqj6QAav-buBXqZZpJ8i55EhpTMap0Z8Wka0smyfvhkIWEXIVMc2TdKWYTZK9ZdreV29ODEfxDIRRA_ZzDYLK21nJXYgs2cKmnGwLYGgn1G6sQkTVQODLm-KN35SKA9Vgm6FH6QC6iZNgB39g5wAxyO9q5kKbGY0QmlR0YrBl1iq5Rzw7tgPGgTioJoPx6UY5ZlTE1U-gICD3YPr2ov9vE-nT5fvTMnpT7hn4xulRBI"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-panel flex items-center justify-center text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+</button>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-bold text-on-surface mb-1 truncate font-body-md text-body-md">Retro Instant Cam</h3>
+<p class="text-primary font-bold text-lg mb-4">$120.00</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary font-button-text text-button-text rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:opacity-90">
+                        Move to Cart
+                    </button>
+</div>
+</div>
+<!-- Wishlist Card 6 -->
+<div class="wishlist-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-600 border border-transparent hover:border-primary-fixed-dim group">
+<div class="relative h-48 bg-surface-container">
+<img alt="Product Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" data-alt="High-fashion oversized sunglasses with a transparent teal frame, resting on a reflective white surface. The lighting is cinematic with a distinct cyan glow coming from the side. The image is crisp, detailed, and radiates an ambitious, modern energy consistent with a premium boutique shopping experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiOVrlwK8gSzyklJxSlspScHFeZqC2-UgaIOTlmKd4X_Vw59rMiBiN1KwLsZAKdpBprA58n7G6G_Z2vDGBlS85B4ucVrQzu_HXWxQ3Tv7ktDzCKueKnVQc1-6Sx9QeA-wGZW_IAf02yrywn9tsMHHJ1oJz9LaWSQlpcoRGx37Z9lFh9_2eksIf2JOuWbAaOGUxCUlV5qLfPM4s2SHVvQMpFSLDMXuoPuS51G7NmwRwlPaoWbt7IIl0LY-2z6WdJsqMvU11bpsYtcsV"/>
+<button class="absolute top-2 right-2 w-8 h-8 rounded-full glass-panel flex items-center justify-center text-error active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">delete</span>
+</button>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h3 class="font-bold text-on-surface mb-1 truncate font-body-md text-body-md">Azure Sun Optics</h3>
+<p class="text-primary font-bold text-lg mb-4">$215.00</p>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary font-button-text text-button-text rounded-lg uppercase tracking-widest active:scale-95 transition-transform hover:opacity-90">
+                        Move to Cart
+                    </button>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden initially) -->
+<div class="hidden flex-col items-center justify-center py-20 text-center" id="empty-state">
+<span class="material-symbols-outlined text-6xl text-outline-variant mb-4">favorite</span>
+<h3 class="text-xl font-bold text-on-surface mb-2">Your wishlist is empty</h3>
+<p class="text-on-surface-variant max-w-xs mb-8">Start adding items you love to keep track of them here.</p>
+<button class="px-8 py-3 bg-primary text-on-primary font-button-text text-button-text rounded-lg uppercase tracking-widest active:scale-95 transition-transform">Explore Products</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_-10px_40px_rgba(45,160,168,0.15)] rounded-t-xl flex justify-around items-center w-full px-4 pb-safe h-20">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1.5 hover:text-primary transition-colors duration-600 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-sm text-label-sm">Cart</span>
+</button>
+<!-- Wishlist isn't a direct tab in the JSON provided but maps to Account or a main destination context. Since user requested Wishlist page, let's treat "Account" as the active anchor for the "My Profile/Space" context if needed, or stick to the specific instruction. -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1.5 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-sm text-label-sm">Wishlist</span>
+</button>
+</nav>
+<!-- Interactions Script -->
+<script>
+        // Drawer Logic
+        const menuBtn = document.querySelector('header button:first-child');
+        const drawer = document.getElementById('drawer');
+        const drawerContent = document.getElementById('drawer-content');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+
+        function openDrawer() {
+            drawer.classList.remove('pointer-events-none');
+            drawerOverlay.classList.replace('opacity-0', 'opacity-100');
+            drawerContent.classList.replace('-translate-x-full', 'translate-x-0');
+        }
+
+        function closeDrawer() {
+            drawerOverlay.classList.replace('opacity-100', 'opacity-0');
+            drawerContent.classList.replace('translate-x-0', '-translate-x-full');
+            setTimeout(() => {
+                drawer.classList.add('pointer-events-none');
+            }, 500);
+        }
+
+        menuBtn.addEventListener('click', openDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+
+        // View Toggle Logic
+        const gridBtn = document.getElementById('grid-view-btn');
+        const listBtn = document.getElementById('list-view-btn');
+        const container = document.getElementById('wishlist-container');
+        const cards = document.querySelectorAll('.wishlist-card');
+
+        gridBtn.addEventListener('click', () => {
+            container.classList.replace('grid-cols-1', 'grid-cols-2');
+            gridBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+            gridBtn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+            listBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+            listBtn.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+            
+            cards.forEach(card => {
+                card.classList.remove('flex-row', 'h-32');
+                card.classList.add('flex-col');
+                card.querySelector('div:first-child').classList.remove('w-32', 'h-full');
+                card.querySelector('div:first-child').classList.add('h-48', 'w-full');
+                card.querySelector('div:last-child').classList.remove('justify-center');
+            });
+        });
+
+        listBtn.addEventListener('click', () => {
+            container.classList.replace('grid-cols-2', 'grid-cols-1');
+            listBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+            listBtn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+            gridBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+            gridBtn.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+
+            cards.forEach(card => {
+                card.classList.remove('flex-col');
+                card.classList.add('flex-row', 'h-32');
+                card.querySelector('div:first-child').classList.remove('h-48', 'w-full');
+                card.querySelector('div:first-child').classList.add('w-32', 'h-full');
+                card.querySelector('div:last-child').classList.add('justify-center');
+            });
+        });
+
+        // Removal Animation
+        const removeBtns = document.querySelectorAll('.wishlist-card button.text-error');
+        removeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = btn.closest('.wishlist-card');
+                card.style.transform = 'scale(0.8)';
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    card.remove();
+                    checkEmpty();
+                }, 600);
+            });
+        });
+
+        function checkEmpty() {
+            const currentCards = document.querySelectorAll('.wishlist-card');
+            if (currentCards.length === 0) {
+                container.classList.add('hidden');
+                document.getElementById('empty-state').classList.replace('hidden', 'flex');
+                document.querySelector('main p.text-outline').innerText = '0 Items Saved';
+            } else {
+                document.querySelector('main p.text-outline').innerText = `${currentCards.length} Items Saved`;
+            }
+        }
+    </script>
+</body></html>

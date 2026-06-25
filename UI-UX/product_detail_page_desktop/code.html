@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MarketPlace | Product Detail</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dcd9d9",
+                    "on-surface": "#1b1c1c",
+                    "primary-fixed-dim": "#6ed6de",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#bac3ff",
+                    "tertiary-fixed-dim": "#00dddd",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#8bf3fb",
+                    "inverse-surface": "#303030",
+                    "gradient-start": "#5c6bc0",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#00105b",
+                    "on-tertiary-container": "#003030",
+                    "input-fill": "#eeeeee",
+                    "surface-container-high": "#eae8e7",
+                    "on-primary-fixed-variant": "#004f54",
+                    "gradient-end": "#2da0a8",
+                    "outline-variant": "#bdc9ca",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#27378a",
+                    "surface-tint": "#00696f",
+                    "surface-bright": "#fbf9f8",
+                    "tertiary-fixed": "#00fbfb",
+                    "error-container": "#ffdad6",
+                    "surface-bg": "#ffffff",
+                    "on-tertiary-fixed-variant": "#004f4f",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#002022",
+                    "on-error": "#ffffff",
+                    "outline": "#6d797a",
+                    "inverse-primary": "#6ed6de",
+                    "on-primary-container": "#003033",
+                    "primary": "#00696f",
+                    "tertiary-container": "#00a2a2",
+                    "border-low-light": "#cccccc",
+                    "surface": "#fbf9f8",
+                    "secondary": "#4858ab",
+                    "surface-container-low": "#f6f3f2",
+                    "primary-container": "#2da0a8",
+                    "surface-variant": "#e4e2e1",
+                    "on-surface-variant": "#3d494a",
+                    "inverse-on-surface": "#f3f0f0",
+                    "secondary-fixed": "#dee0ff",
+                    "tertiary": "#006a6a",
+                    "on-tertiary-fixed": "#002020",
+                    "on-secondary-fixed-variant": "#2f3f92",
+                    "surface-container": "#f0eded",
+                    "background": "#fbf9f8",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#96a5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "panel-padding": "30px",
+                    "container-padding": "40px",
+                    "gutter-md": "20px",
+                    "input-gap": "8px",
+                    "stack-xs": "3px",
+                    "stack-sm": "10px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "display-hero": ["Montserrat"],
+                    "button-text": ["Montserrat"],
+                    "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .cyan-glow {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .toggle-gradient {
+            background: linear-gradient(135deg, #5c6bc0 0%, #2da0a8 100%);
+        }
+        .cyber-slide {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            height: 2px;
+            width: 100%;
+            background-color: #2da0a8;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-surface border-b border-outline-variant docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center px-container-padding py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-lg text-headline-lg font-black uppercase text-on-surface tracking-tighter" href="#">MarketPlace</a>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600 ease-in-out" href="#">Shop</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600 ease-in-out" href="#">Categories</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600 ease-in-out" href="#">Deals</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600 ease-in-out" href="#">New Arrivals</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-input-fill rounded-full px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm w-48" placeholder="Search products..." type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out"><span class="material-symbols-outlined text-primary">shopping_cart</span></button>
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out"><span class="material-symbols-outlined text-primary">favorite</span></button>
+<button class="scale-95 active:scale-90 transition-transform duration-600 ease-in-out"><span class="material-symbols-outlined text-primary">account_circle</span></button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto my-12 px-4 md:px-container-padding">
+<!-- Main Product Card -->
+<div class="glass-panel rounded-[30px] cyan-glow overflow-hidden cyber-slide">
+<div class="grid grid-cols-1 lg:grid-cols-2">
+<!-- Left: Product Image Gallery -->
+<div class="p-8 flex flex-col gap-4">
+<div class="relative aspect-square rounded-2xl overflow-hidden bg-surface-container-highest group">
+<img class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" data-alt="A high-performance neon red athletic sneaker set against a clean, minimalist white background with soft cyan ambient light. The product photography is crisp and modern, emphasizing the technological textures of the mesh and the sleek, aerodynamic silhouette of the footwear. The mood is energetic and premium, reflecting a high-tech e-commerce aesthetic." id="mainImage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkzdP9LRDJ3koecRVjk1vEOmXnUwT0ZkIyIKLcpyqRGh3bF-orX64d6agLXwoYFd8dII0YM76r3uMn8n6yylhkk3h-JVgSEYQ39yRE_c6iZTwe3Phe4p0_8-WzPRZkvPgSaalPstCLQLmk_2okMOedh02v_gOmHYXuPqFp49kab6PbBr15oGVy3gEZUhBOi5ENpJOVntx7ht7q3WdhjLNmvzrCi_DlWhLh7Yb2K5I9u1ElTXUH7iZx-LN-z2TjdrE8QTxlL10WVbYM"/>
+<div class="absolute top-4 right-4 bg-white/80 backdrop-blur rounded-full p-2">
+<span class="material-symbols-outlined text-primary">zoom_in</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<button class="aspect-square rounded-xl overflow-hidden border-2 border-primary cyber-slide" onclick="changeImage('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&amp;w=1000')">
+<img class="w-full h-full object-cover" data-alt="Close-up detail of a red sneaker's side profile, showing the intricate mesh texture and vibrant teal logo accents in a bright, modern lighting setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQZOg9sdC83XwZFNEuM6PQo2UKTls4hXClDiECGYFGswyclcDg8K2EgZ84FYPLkpbR-LyiZfx1bxgOB02BNFITf-Ek7Yg_aQG5Dmu2XjyZTaPckbk5NYTxGSoiP17onX6V43cTmBMJdYzgIOrB4gXy4xPazUTenmqcVhPlFZ9W4qEvEy6dr6lZmQM_FrQeHmSpBJCKGwNHK108VD9B7Y8Loi9ahjOpmJ0LGpCeDkmcBB7CXpg43BldkdNBp3OzxCfiyikHrnCnPBjV"/>
+</button>
+<button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-outline-variant cyber-slide" onclick="changeImage('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&amp;w=1000')">
+<img class="w-full h-full object-cover" data-alt="Top-down view of performance running shoes on a polished white surface, featuring bold color blocking and futuristic design elements under cool studio lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsjmSOuS2RcQagO5mkbqjC_kBxHzMZfSd5HagZro_rmd_8v0rd4ZCqniKGKFC3HicSGNfWG6kbOvN2tyMydt7AMMhZ9x0xWloJ6ki6cgG39tLW6DhwP7epQ9TIqks4yP0tOSL2N7hh_U_NLeB0TGd0dRhjkyW9m9AD7Wdq7soP3jFLgfqWuFKf4S83vhQ26hBwxQcGeq0loWKoR1qzzYo49UdIYGI21NcD0A8LKn0ypmefwvbkctdpGGVjALiqLIhTeCJOPovfz8b3"/>
+</button>
+<button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-outline-variant cyber-slide" onclick="changeImage('https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&amp;w=1000')">
+<img class="w-full h-full object-cover" data-alt="Dynamic shot of a sneaker heel with visible air cushioning technology, illuminated by soft cyan glows in a professional product studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5G8jIUeT_3Tom3xdoQjjCu0dV0oHei6v40kDksu4cQGZT7kceE69x1fX4DH7yMfkDEk1Ue9JjBFIQyd9Nm-xuWCcamcE_gWpd6km-ZMCMA49yrmzflZcJ6CklkE4Ahni9Y9Sng81-oUXrsQqxmbitATDFoHC1F_12S0KUJwg9JyN6G7pXr8UQpLGLDwqxP2np4nyNmW4DCpKDMg_asXXB7cA2L8ldY768F5etSwVKyDdcthaQ9Vfh-HNvj2xzuCbZ-wefcUXbkNKN"/>
+</button>
+<div class="aspect-square rounded-xl bg-surface-container flex items-center justify-center cursor-pointer hover:bg-surface-dim transition-colors">
+<span class="font-bold text-primary">+2</span>
+</div>
+</div>
+</div>
+<!-- Right: Product Information -->
+<div class="p-panel-padding lg:p-12 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">Limited Edition</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[#FFD700]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.8</span>
+<span class="text-on-surface-variant text-label-sm ml-1">(128 Reviews)</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-4">Cyber-Strike V2 Performance</h1>
+<p class="text-on-surface-variant font-body-md mb-8 leading-relaxed">
+                            Engineered for speed, the Cyber-Strike V2 features our proprietary fluid-motion sole technology and an adaptive carbon-fiber mesh. Experience the future of performance today.
+                        </p>
+<!-- Color Selection -->
+<div class="mb-8">
+<h3 class="font-label-sm text-label-sm font-bold uppercase mb-4 tracking-tighter">Color: Velocity Red</h3>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full border-2 border-primary bg-[#ff3b30] ring-offset-2 ring-2 ring-transparent transition-all"></button>
+<button class="w-10 h-10 rounded-full border-2 border-transparent bg-[#007aff] hover:border-outline-variant transition-all"></button>
+<button class="w-10 h-10 rounded-full border-2 border-transparent bg-[#34c759] hover:border-outline-variant transition-all"></button>
+<button class="w-10 h-10 rounded-full border-2 border-transparent bg-[#1b1c1c] hover:border-outline-variant transition-all"></button>
+</div>
+</div>
+<!-- Size Selection -->
+<div class="mb-10">
+<div class="flex justify-between mb-4">
+<h3 class="font-label-sm text-label-sm font-bold uppercase tracking-tighter">Select Size (EU)</h3>
+<button class="text-label-sm text-primary underline">Size Guide</button>
+</div>
+<div class="grid grid-cols-4 gap-3">
+<button class="py-3 border border-outline-variant rounded-lg font-bold hover:bg-surface-dim transition-all">40</button>
+<button class="py-3 border border-primary bg-primary-container text-white rounded-lg font-bold transition-all">41</button>
+<button class="py-3 border border-outline-variant rounded-lg font-bold hover:bg-surface-dim transition-all">42</button>
+<button class="py-3 border border-outline-variant rounded-lg font-bold hover:bg-surface-dim transition-all">43</button>
+<button class="py-3 border border-outline-variant rounded-lg font-bold hover:bg-surface-dim transition-all">44</button>
+<button class="py-3 border border-outline-variant rounded-lg font-bold hover:bg-surface-dim transition-all">45</button>
+<button class="py-3 border border-outline-variant rounded-lg font-bold opacity-50 cursor-not-allowed">46</button>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-end gap-3 mb-6">
+<span class="font-headline-lg text-headline-lg">$249.00</span>
+<span class="text-on-surface-variant line-through mb-1">$299.00</span>
+<span class="bg-error-container text-on-error-container text-label-sm font-bold px-2 py-1 rounded">-20%</span>
+</div>
+<div class="flex gap-4">
+<button class="flex-grow bg-primary-container text-white font-button-text text-button-text uppercase py-5 rounded-lg font-bold tracking-widest hover:brightness-110 active:scale-95 transition-all cyber-slide">
+                                Add to Cart
+                            </button>
+<button class="w-16 flex items-center justify-center border border-outline-variant rounded-lg hover:bg-surface-dim transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">favorite</span>
+</button>
+</div>
+<p class="text-center text-label-sm text-on-surface-variant flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span> Free express shipping on this item
+                        </p>
+</div>
+</div>
+</div>
+<!-- Tabs Section -->
+<div class="border-t border-outline-variant bg-surface-container-low">
+<div class="flex border-b border-outline-variant">
+<button class="px-8 py-6 font-label-sm text-label-sm font-bold uppercase tracking-widest relative text-primary" id="tab-desc" onclick="switchTab('description')">
+                        Description
+                        <div class="active-tab-indicator" id="indicator-desc"></div>
+</button>
+<button class="px-8 py-6 font-label-sm text-label-sm font-bold uppercase tracking-widest relative text-on-surface-variant hover:text-on-surface transition-colors" id="tab-rev" onclick="switchTab('reviews')">
+                        Reviews (128)
+                        <div class="active-tab-indicator hidden" id="indicator-rev"></div>
+</button>
+<button class="px-8 py-6 font-label-sm text-label-sm font-bold uppercase tracking-widest relative text-on-surface-variant hover:text-on-surface transition-colors">
+                        Shipping &amp; Returns
+                    </button>
+</div>
+<div class="p-8 md:p-12" id="content-description">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="col-span-2 space-y-6">
+<h4 class="font-headline-lg text-headline-lg text-on-surface">Designed for the Next Frontier</h4>
+<p class="text-on-surface-variant leading-relaxed">The Cyber-Strike V2 isn't just a shoe; it's a piece of performance engineering. Utilizing advanced generative design algorithms, we've created a midsole that reacts in real-time to your gait, providing maximum energy return where you need it most. The upper is woven from ultra-durable carbon-fiber threads that provide structured support while remaining incredibly breathable.</p>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">check_circle</span> Responsive Fluid-Motion™ Sole</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">check_circle</span> Carbon-Fiber Adaptive Mesh</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">check_circle</span> 360° Neon Safety Reflectors</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary">check_circle</span> Weather-Resistant Coating</li>
+</ul>
+</div>
+<div class="bg-surface-container p-6 rounded-2xl">
+<h4 class="font-bold mb-4 uppercase text-label-sm tracking-widest">Tech Specs</h4>
+<div class="space-y-4">
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="text-on-surface-variant">Weight</span>
+<span class="font-bold">240g</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="text-on-surface-variant">Heel Drop</span>
+<span class="font-bold">8mm</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant pb-2">
+<span class="text-on-surface-variant">Terrain</span>
+<span class="font-bold">Road / Track</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Stability</span>
+<span class="font-bold">Neutral</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-8 md:p-12 hidden" id="content-reviews">
+<div class="flex flex-col gap-8">
+<!-- Summary -->
+<div class="flex items-center gap-8 bg-surface-container-high p-8 rounded-2xl">
+<div class="text-center">
+<div class="text-5xl font-black text-primary">4.8</div>
+<div class="text-on-surface-variant text-label-sm">out of 5</div>
+</div>
+<div class="flex-grow max-w-xs space-y-2">
+<div class="flex items-center gap-2"><span class="text-label-sm w-4">5</span><div class="h-2 flex-grow bg-surface rounded-full"><div class="h-full bg-primary rounded-full" style="width: 85%"></div></div></div>
+<div class="flex items-center gap-2"><span class="text-label-sm w-4">4</span><div class="h-2 flex-grow bg-surface rounded-full"><div class="h-full bg-primary rounded-full" style="width: 10%"></div></div></div>
+<div class="flex items-center gap-2"><span class="text-label-sm w-4">3</span><div class="h-2 flex-grow bg-surface rounded-full"><div class="h-full bg-primary rounded-full" style="width: 3%"></div></div></div>
+<div class="flex items-center gap-2"><span class="text-label-sm w-4">2</span><div class="h-2 flex-grow bg-surface rounded-full"><div class="h-full bg-primary rounded-full" style="width: 1%"></div></div></div>
+<div class="flex items-center gap-2"><span class="text-label-sm w-4">1</span><div class="h-2 flex-grow bg-surface rounded-full"><div class="h-full bg-primary rounded-full" style="width: 1%"></div></div></div>
+</div>
+<button class="ml-auto bg-primary text-white px-6 py-3 rounded-lg font-bold uppercase text-button-text">Write a Review</button>
+</div>
+<!-- Individual Review -->
+<div class="border-b border-outline-variant pb-8">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold">JD</div>
+<div>
+<div class="font-bold">Jason D.</div>
+<div class="text-label-sm text-on-surface-variant">Verified Buyer • 2 days ago</div>
+</div>
+</div>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h5 class="font-bold mb-2">Unbelievable Comfort</h5>
+<p class="text-on-surface-variant">The fit is like a second skin. I've taken these for three 10k runs already and the energy return is definitely noticeable compared to my old trainers. Plus, they look absolutely insane in person!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products (Bento Style) -->
+<section class="mt-24 mb-12">
+<h2 class="font-headline-lg text-headline-lg text-white mb-10 tracking-tighter">You Might Also Like</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md">
+<div class="md:col-span-2 bg-surface glass-panel rounded-3xl p-8 flex flex-col justify-between cyber-slide hover:-translate-y-2">
+<div>
+<span class="bg-primary-container text-white px-3 py-1 rounded-full text-label-sm font-bold">New Arrival</span>
+<h3 class="text-3xl font-black mt-4 mb-2">Cyber-Grip Socks</h3>
+<p class="text-on-surface-variant">Engineered compression for maximum foot stability.</p>
+</div>
+<div class="flex justify-between items-end mt-8">
+<span class="text-2xl font-bold">$29.00</span>
+<button class="bg-primary-container text-white w-12 h-12 rounded-full flex items-center justify-center"><span class="material-symbols-outlined">add</span></button>
+</div>
+</div>
+<div class="md:col-span-1 bg-surface-container rounded-3xl overflow-hidden group relative cyber-slide hover:-translate-y-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="High-tech athletic shorts displayed in a minimalist gray studio. The fabric has a subtle hexagonal pattern and sleek teal piping, embodying a future-forward fitness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX-dKUO8eMDV8XsOUvTfh7A3MWgklR8hpxv9tSvCl0KQbweBZa1L2_14MWuw-91kx9-n103wEvkJJZ9shQbc4iDlFydGmywDI0QrQxk-xgT14sMnI67WdjO70gkoj1Cy1_b-LQORJbMOpJMHjDDvzMD-oI8i5s9jsepOmfF8M_cLjbi3CDGwEGgZOIbMJbYBeHeuToNJZf2fQ1O0mMicIhMfZRVLrXUZ1os9YxgShMEQhQfY6DWopixOpVB7cRmZyYQEr4eMab59lj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex flex-col justify-end text-white">
+<h3 class="font-bold">Pro-Lite Shorts</h3>
+<p class="text-white/80 text-label-sm">$55.00</p>
+</div>
+</div>
+<div class="md:col-span-1 bg-surface-container rounded-3xl overflow-hidden group relative cyber-slide hover:-translate-y-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Professional sports water bottle with a matte black finish and a glowing cyan accent line. It is placed on a reflective glass surface with a dark, cinematic bokeh background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYk2PZmVJGK015fcEJQxEpkPtwbav00EEsjrZ37VlOuArZupYgQ0xmRZUD68qg3Y5xUSFqBpAUkC5irn4jpyzWLtcxQXfljpUgyGfbwIHBK17z_7RggkfcslQ34PoECzmKre7LEoDeJ-wrIJcznKMXSMACCCX49eW79uwoMGWF0IbwUYvmRwsTtTHU9-8KkzkfpPbv2uy4p2hcd3EhanOitPEch6qsvzhitaS_JaijcjRjnbv_5k747OrjQ-z3vVTazH0usBMgV-Y2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent p-6 flex flex-col justify-end text-white">
+<h3 class="font-bold">Hydra-Bottle Elite</h3>
+<p class="text-white/80 text-label-sm">$35.00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md px-container-padding py-panel-padding max-w-7xl mx-auto">
+<div>
+<a class="font-headline-lg text-headline-lg font-black uppercase text-on-surface tracking-tighter block mb-6" href="#">MarketPlace</a>
+<p class="text-on-surface-variant font-body-md">The world's leading destination for future-forward performance gear and cyber-aesthetic lifestyle products.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary uppercase text-label-sm tracking-widest">Shop</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Footwear</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Apparel</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Accessories</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Equipment</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary uppercase text-label-sm tracking-widest">Company</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Careers</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary uppercase text-label-sm tracking-widest">Newsletter</h4>
+<p class="text-on-surface-variant text-label-sm">Join the elite for exclusive drops and tech insights.</p>
+<div class="flex bg-surface rounded-lg p-1 border border-outline-variant">
+<input class="bg-transparent border-none focus:ring-0 flex-grow text-label-sm px-3" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-md"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-container-padding py-6 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-label-sm text-on-surface-variant">© 2024 MarketPlace. All rights reserved.</span>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors">brand_awareness</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors">social_leaderboard</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors">public</span>
+</div>
+</div>
+</footer>
+<script>
+        function changeImage(src) {
+            const mainImg = document.getElementById('mainImage');
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 300);
+        }
+
+        function switchTab(tab) {
+            const desc = document.getElementById('content-description');
+            const rev = document.getElementById('content-reviews');
+            const indDesc = document.getElementById('indicator-desc');
+            const indRev = document.getElementById('indicator-rev');
+            const tabDesc = document.getElementById('tab-desc');
+            const tabRev = document.getElementById('tab-rev');
+
+            if (tab === 'description') {
+                desc.classList.remove('hidden');
+                rev.classList.add('hidden');
+                indDesc.classList.remove('hidden');
+                indRev.classList.add('hidden');
+                tabDesc.classList.add('text-primary');
+                tabDesc.classList.remove('text-on-surface-variant');
+                tabRev.classList.remove('text-primary');
+                tabRev.classList.add('text-on-surface-variant');
+            } else {
+                desc.classList.add('hidden');
+                rev.classList.remove('hidden');
+                indDesc.classList.add('hidden');
+                indRev.classList.remove('hidden');
+                tabRev.classList.add('text-primary');
+                tabRev.classList.remove('text-on-surface-variant');
+                tabDesc.classList.remove('text-primary');
+                tabDesc.classList.add('text-on-surface-variant');
+            }
+        }
+
+        // Simple mouse tracking for subtle glow movement
+        document.addEventListener('mousemove', (e) => {
+            const panels = document.querySelectorAll('.glass-panel');
+            panels.forEach(panel => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
+                    panel.style.boxShadow = `0 0 50px rgba(45, 160, 168, 0.2), inset ${(x - rect.width/2)/20}px ${(y - rect.height/2)/20}px 30px rgba(45, 160, 168, 0.05)`;
+                } else {
+                    panel.style.boxShadow = '0 0 50px rgba(45, 160, 168, 0.15)';
+                }
+            });
+        });
+    </script>
+</body></html>

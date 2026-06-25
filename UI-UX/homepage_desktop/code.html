@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cyber-glow {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .asymmetric-right {
+            border-top-right-radius: 80px;
+        }
+        .asymmetric-left {
+            border-bottom-left-radius: 80px;
+        }
+        .transition-06 {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fbf9f8;
+            overflow-x: hidden;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-dim": "#dcd9d9",
+                "on-surface": "#1b1c1c",
+                "primary-fixed-dim": "#6ed6de",
+                "on-primary": "#ffffff",
+                "secondary-fixed-dim": "#bac3ff",
+                "tertiary-fixed-dim": "#00dddd",
+                "on-secondary": "#ffffff",
+                "primary-fixed": "#8bf3fb",
+                "inverse-surface": "#303030",
+                "gradient-start": "#5c6bc0",
+                "surface-container-highest": "#e4e2e1",
+                "on-background": "#1b1c1c",
+                "on-secondary-fixed": "#00105b",
+                "on-tertiary-container": "#003030",
+                "input-fill": "#eeeeee",
+                "surface-container-high": "#eae8e7",
+                "on-primary-fixed-variant": "#004f54",
+                "gradient-end": "#2da0a8",
+                "outline-variant": "#bdc9ca",
+                "on-tertiary": "#ffffff",
+                "on-secondary-container": "#27378a",
+                "surface-tint": "#00696f",
+                "surface-bright": "#fbf9f8",
+                "tertiary-fixed": "#00fbfb",
+                "error-container": "#ffdad6",
+                "surface-bg": "#ffffff",
+                "on-tertiary-fixed-variant": "#004f4f",
+                "on-error-container": "#93000a",
+                "on-primary-fixed": "#002022",
+                "on-error": "#ffffff",
+                "outline": "#6d797a",
+                "inverse-primary": "#6ed6de",
+                "on-primary-container": "#003033",
+                "primary": "#00696f",
+                "tertiary-container": "#00a2a2",
+                "border-low-light": "#cccccc",
+                "surface": "#fbf9f8",
+                "secondary": "#4858ab",
+                "surface-container-low": "#f6f3f2",
+                "primary-container": "#2da0a8",
+                "surface-variant": "#e4e2e1",
+                "on-surface-variant": "#3d494a",
+                "inverse-on-surface": "#f3f0f0",
+                "secondary-fixed": "#dee0ff",
+                "tertiary": "#006a6a",
+                "on-tertiary-fixed": "#002020",
+                "on-secondary-fixed-variant": "#2f3f92",
+                "surface-container": "#f0eded",
+                "background": "#fbf9f8",
+                "error": "#ba1a1a",
+                "surface-container-lowest": "#ffffff",
+                "secondary-container": "#96a5ff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.8px",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "panel-padding": "30px",
+                "container-padding": "40px",
+                "gutter-md": "20px",
+                "input-gap": "8px",
+                "stack-xs": "3px",
+                "stack-sm": "10px"
+            },
+            "fontFamily": {
+                "body-md": ["Montserrat"],
+                "headline-lg": ["Montserrat"],
+                "display-hero": ["Montserrat"],
+                "button-text": ["Montserrat"],
+                "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant docked full-width top-0 sticky z-50 shadow-sm transition-06">
+<nav class="flex justify-between items-center px-container-padding py-4 w-full max-w-7xl mx-auto">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface tracking-tighter">
+                MarketPlace
+            </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-sm text-label-sm" href="#">Shop</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600 font-label-sm text-label-sm" href="#">Categories</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600 font-label-sm text-label-sm" href="#">Deals</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-600 font-label-sm text-label-sm" href="#">New Arrivals</a>
+</div>
+<div class="flex gap-4 items-center">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-body-md w-48" placeholder="Search products..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-on-surface p-2 scale-95 active:scale-90 transition-transform duration-600">shopping_cart</button>
+<button class="material-symbols-outlined text-on-surface p-2 scale-95 active:scale-90 transition-transform duration-600">favorite</button>
+<button class="material-symbols-outlined text-on-surface p-2 scale-95 active:scale-90 transition-transform duration-600">account_circle</button>
+</div>
+</nav>
+</header>
+<main class="w-full">
+<!-- Hero Section -->
+<section class="relative h-[870px] flex items-center justify-center overflow-hidden bg-black">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60 scale-105" data-alt="A futuristic high-tech laboratory filled with holographic interface displays and sleek teal neon lighting accents. The environment is minimalist and polished with metallic surfaces reflecting glowing data streams. A cinematic atmosphere with deep shadows and sharp, vibrant cyan highlights creates a high-energy tech-forward mood. The aesthetic is clean, professional, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ptbUF69biEy1LayT0cDyH3aZP0Lvaa4AsdZ1UkWnSDJWt7YIae7ojiryzvJUEfYllDH-XtH0Blsuj94w19YExdZFvr7MpGcFiAaUhlib4sdzsPWvmfaHJOPZKnPo5Bgncpnb_ZYerBn76DGrPBtN4WlDDietNvnGhFUr_vXn4K2RcLpFV2VzjN8iAsO74CNYndY-WyXFYaG1XOqcuh_roIJbpYJrOaTpXw2eHHQj7KIAa9Ko5JdW60Klem8qofiQCVBXYPx_rDpC"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-5xl">
+<span class="inline-block px-4 py-1 mb-6 border border-primary-fixed-dim text-primary-fixed-dim font-label-sm text-label-sm uppercase tracking-widest rounded-full animate-pulse">Next Gen Commerce</span>
+<h1 class="font-display-hero text-white uppercase mb-8 leading-[0.9] drop-shadow-2xl">
+                    Shop the<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gradient-start to-gradient-end">Future</span>
+</h1>
+<p class="text-surface-bright font-body-md text-lg mb-10 max-w-xl mx-auto opacity-90">
+                    Experience a curated ecosystem of next-generation technology and fashion, precision-engineered for the digitally native world.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-[#2da0a8] text-white px-10 py-4 rounded-lg font-button-text text-button-text uppercase tracking-widest transition-06 hover:scale-105 hover:bg-primary active:scale-95 cyber-glow">
+                        Explore Now
+                    </button>
+<button class="bg-transparent border border-white text-white px-10 py-4 rounded-lg font-button-text text-button-text uppercase tracking-widest transition-06 hover:bg-white hover:text-black active:scale-95">
+                        Watch Keynote
+                    </button>
+</div>
+</div>
+<!-- Floating Decoration -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+<div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
+<span class="text-[10px] text-white/50 uppercase tracking-[0.3em]">Scroll Down</span>
+</div>
+</section>
+<!-- Category Bento Grid -->
+<section class="py-24 px-container-padding max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg uppercase tracking-tighter mb-2">The Collection</h2>
+<div class="h-1 w-20 bg-gradient-to-r from-gradient-start to-gradient-end"></div>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm max-w-xs text-right">
+                    Architected for performance. Designed for the bold. Our premium sectors redefined.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Electronics -->
+<div class="group relative md:col-span-2 h-[450px] bg-white rounded-[30px] overflow-hidden cyber-glow transition-06 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover transition-06 group-hover:scale-110" data-alt="Close-up of premium high-tech electronic gadgets including a sleek minimalist smartphone and translucent wireless earbuds resting on a polished white surface. The lighting is cold and clinical with subtle teal glow reflecting off metallic edges. High-end product photography style with a focus on precision manufacturing and futuristic aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkFoFwoQtSm9jvaG5ZLlPuSIxV5-73Ss2gnICjCB6kksQVWzOPvqbxoMnct7SUESESCquQ0MizxvwsP6gwJuBf-0eRlvkrvp96Lo_MFLK9qs6ewHGGaOWHyzlkrOWMmQAI9fGbaIwADfB8vS6yIZM7PU19puv95_4A-g5YvkqcqkjjxFYeevtWD2pJcNm_QYve_UDMXlX1q_wc6BHA7IilwDOvLrUe34oP3ChRetJGx7ioR8O5hXceOMgaUvAOJ6vi4VLV9hfaqzP7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="text-primary-fixed font-label-sm text-label-sm uppercase mb-2">Premium Gear</p>
+<h3 class="text-white font-headline-lg text-headline-lg uppercase mb-4">Electronics</h3>
+<button class="material-symbols-outlined bg-white text-on-surface p-3 rounded-full hover:bg-primary hover:text-white transition-06">arrow_forward</button>
+</div>
+</div>
+<!-- Fashion -->
+<div class="group relative h-[450px] bg-white rounded-[30px] overflow-hidden cyber-glow transition-06 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover transition-06 group-hover:scale-110" data-alt="Avant-garde streetwear fashion featuring metallic fabrics and glowing fiber-optic textiles. A model stands in a minimalist concrete architectural space with sharp dramatic lighting. The color palette is dominated by stark whites, tech-silvers, and vibrant teal highlights, creating a high-fashion futuristic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpB-mG2_tbgofew_zQ8_-qPY5cabatT5a6_Mgq-Cq4IpvZGw9A8T8ivVavZEpSdnRW7EaA1Bauej2375t_ar1f7ii371FSVFKHFX_XRI2jOkv6cd0RhEb19Tjpisv4BMAvD60DUwqPcHUr5pDX5f4j6sRV82iR6jsbLfxJRYvSjzRu1dWwjiOJ1ovNf5f6sMKW1CezrCYibzQrkE7LUYLwf200CfDKQilv2RjsTI2axtghd5n3q1RsMAgbjwfp1iaEzr7K4cCeSW9s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="text-white font-headline-lg text-headline-lg uppercase mb-4">Fashion</h3>
+<button class="material-symbols-outlined bg-white text-on-surface p-3 rounded-full hover:bg-primary hover:text-white transition-06">arrow_forward</button>
+</div>
+</div>
+<!-- Home -->
+<div class="group relative h-[450px] bg-white rounded-[30px] overflow-hidden cyber-glow transition-06 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover transition-06 group-hover:scale-110" data-alt="A minimalist smart home living room with floating furniture elements and integrated ambient lighting systems that glow in soft cyan and indigo tones. Large floor-to-ceiling windows look out onto a futuristic city skyline at dusk. The interior design is clean, white, and emphasizes spaciousness and technological integration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaUrT-QmXdaK31HSgnZmqyjfe5YqvfvHY4irhi7gc0yDAiv2gkdywsPtZTTV4sZ_JVbkFgFG0Gk0OlMjxGt4yyxT56z9cqI35gXBAT5GXehtp0Rd5oW_cysfBeTmh8q5zQ1vl0IOBMwtQxBaupt_u7NCTEBNd3E0zCRJHmqcYh1LJRqLaq2AaawJYn7v-P6dw4uO7Z3aIp7IH-6VIxHVoxDs9aRElQZ44s7CZj89N00miSz7DotEepgFCM-Gmwf57lsm8kt9-qf6pZ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="text-white font-headline-lg text-headline-lg uppercase mb-4">Home</h3>
+<button class="material-symbols-outlined bg-white text-on-surface p-3 rounded-full hover:bg-primary hover:text-white transition-06">arrow_forward</button>
+</div>
+</div>
+</div>
+<!-- Sports (Floating Card Layout) -->
+<div class="mt-6">
+<div class="group relative h-[300px] w-full bg-white rounded-[30px] overflow-hidden cyber-glow transition-06 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover transition-06 group-hover:scale-105" data-alt="Dynamic fitness photography of a high-performance athlete using biometric sensors and glowing tech gear in a dark, high-contrast training facility. Dramatic side-lighting creates powerful shadows and highlights the sleek textures of the carbon-fiber sports equipment. The mood is intense, energetic, and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqsPFFTlttfN1YLSf4H4k8ErlNf7jiqWZppzHp4s0GzSgIaFL5SA09CU-kjpK0ABEQXEsLMF1gxFChCsVokSrffW3gIB76nXgs3ffpdAc17bj51MYdt1kIt4zI4i6EDIrSm1Ds_uK45KyJs9buZ-cHCpPqcGeiLVJubz8YRbJ4lP96Oen50z6qH1bgi3y4kDLdet4DJofqAQc61jMjenW2X1oPqmKu28DlCevTP7epE2XhcZ7Ip1zID8csHYxiPZ2iHu0TPSIDmwGx"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+<div class="absolute inset-y-0 left-0 p-12 flex flex-col justify-center max-w-md">
+<h3 class="text-white font-headline-lg text-headline-lg uppercase mb-2">Sports &amp; Performance</h3>
+<p class="text-white/70 font-body-md mb-6">Enhance your physical potential with AI-driven hardware and biometric apparel.</p>
+<div>
+<button class="bg-[#2da0a8] text-white px-8 py-3 rounded-lg font-button-text text-button-text uppercase tracking-widest transition-06 hover:scale-105">View Collection</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Section -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant">
+<div class="max-w-7xl mx-auto px-container-padding">
+<div class="flex justify-between items-center mb-16">
+<h2 class="font-headline-lg text-headline-lg uppercase tracking-tighter">Recommended For You</h2>
+<div class="flex gap-2">
+<button class="material-symbols-outlined border border-outline p-2 rounded-full hover:bg-primary hover:text-white transition-06">chevron_left</button>
+<button class="material-symbols-outlined border border-outline p-2 rounded-full hover:bg-primary hover:text-white transition-06">chevron_right</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-md">
+<!-- Product Card 1 -->
+<div class="bg-white rounded-[20px] p-4 flex flex-col shadow-sm transition-06 hover:shadow-xl hover:-translate-y-1">
+<div class="relative h-64 bg-surface-container-high rounded-[16px] overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="A pair of sleek, matte black noise-canceling headphones with subtle teal LED indicators, presented in a minimalist studio setting. Soft directional lighting highlights the premium leather textures and metallic hinges. The background is a clean, neutral gradient, emphasizing the product's sophisticated design and technological superiority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkOkQwLdXW32Q7YpT_dpBns82HvD8kS0l3ed3X7W1Mmmsy7r0HZzFaaRUcgPXyxPF1iw5PEKwgvDelD7dWAhqb55P8uC1udoKATFbYrL_jUWJWVhq62qJRLS2OSQuYMsLCxi5XkNChHkKu2PTKyDcgEu0wmYXPhUvnlvsSO-VaayqeYkGfg5HRiVsNMaWia17fWFBgLg4qjc7A4dDHuIlH4VRIKwKLv6oBHyHmqSCVhaqMxrmdUNUNU0eWbCS3O3h61PN9rzKereCP"/>
+<button class="absolute top-3 right-3 material-symbols-outlined bg-white/80 p-2 rounded-full text-on-surface hover:text-error transition-06">favorite</button>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Audio Core</span>
+<h4 class="font-bold font-body-md text-on-surface truncate">Neural-Sync Headphones</h4>
+<div class="flex justify-between items-center mt-3">
+<span class="font-headline-lg text-[18px] text-primary">$349.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">4.9</span>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container text-on-surface font-button-text text-button-text py-3 rounded-lg uppercase tracking-widest hover:bg-primary hover:text-white transition-06">Add To Cart</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white rounded-[20px] p-4 flex flex-col shadow-sm transition-06 hover:shadow-xl hover:-translate-y-1">
+<div class="relative h-64 bg-surface-container-high rounded-[16px] overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="A high-performance luxury titanium smartwatch with a glowing circular sapphire glass interface showing complex data visualizations. The watch features a segmented metal strap and is photographed in a high-tech laboratory environment with cyan lens flare and sharp focus on the digital crown. Minimalist and elite aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfpkZtBPwIu6JWKElE5TOWTycWmAfnvzxtjgsKWmA-nz7va7FZAdc3AJmOgJZG-8L1_GScjbKQzat0rQLI8dgM5Tir-0sehUEgab_Fk8yqz8kgTWP-F4lS3vPWUopsxQd_C4kp4IMITr6eZAL0cFKQqGjD04cm1m9jvv7wRYkoT6xq4mQ0i5Tt0BQT7VkxgWCbEmZt315M8lZYwXHnsouMpg3AQi6e7JW8sdXkmgXmf5nTZXsf_OFDmhGKkZIWS2bnozOVLKZuE1JB"/>
+<button class="absolute top-3 right-3 material-symbols-outlined bg-white/80 p-2 rounded-full text-on-surface hover:text-error transition-06">favorite</button>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Wearables</span>
+<h4 class="font-bold font-body-md text-on-surface truncate">Titanium Series Watch 7</h4>
+<div class="flex justify-between items-center mt-3">
+<span class="font-headline-lg text-[18px] text-primary">$599.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">4.8</span>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container text-on-surface font-button-text text-button-text py-3 rounded-lg uppercase tracking-widest hover:bg-primary hover:text-white transition-06">Add To Cart</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white rounded-[20px] p-4 flex flex-col shadow-sm transition-06 hover:shadow-xl hover:-translate-y-1">
+<div class="relative h-64 bg-surface-container-high rounded-[16px] overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="A pair of ultra-modern running shoes featuring 3D-printed soles and translucent performance mesh. The shoes are placed on a floating platform in a digital space filled with floating geometric particles and teal laser lines. The image captures a sense of incredible speed and futuristic engineering with a pristine, bright aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkOF94PPWTt35XYOG4r911QNVVFL17igVFNBv-iKNvLV6RNZWA2YE19dDdvzptUzve92aPlxbZw1fFpfX-9SnNRTHRVFJMIvQtRrJdsuIE4bRuINnYoAOjyertP0xtBn0AH6QhTep58gz_SXjxwgfmCAToWEZjSZNKRXcF-8y-SyS-rNAmPPsyWec8EjF21gPR335uxEoatgZniRQyvkiWq1O9Z69eEYFAzRMBY5H4zG1Y4eAvrV4r7Z1Vqou4kMp0LVx9wiQRMm-q"/>
+<button class="absolute top-3 right-3 material-symbols-outlined bg-white/80 p-2 rounded-full text-on-surface hover:text-error transition-06">favorite</button>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Footwear</span>
+<h4 class="font-bold font-body-md text-on-surface truncate">Velocity Prime Trainers</h4>
+<div class="flex justify-between items-center mt-3">
+<span class="font-headline-lg text-[18px] text-primary">$180.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">4.7</span>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container text-on-surface font-button-text text-button-text py-3 rounded-lg uppercase tracking-widest hover:bg-primary hover:text-white transition-06">Add To Cart</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white rounded-[20px] p-4 flex flex-col shadow-sm transition-06 hover:shadow-xl hover:-translate-y-1">
+<div class="relative h-64 bg-surface-container-high rounded-[16px] overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="A minimalist architectural smart lamp made from white matte ceramic with a floating circular light ring. The lamp is styled in a serene, modern home office with soft daylight and subtle shadow play. The aesthetic is clean and Scandinavian-modern with a futuristic twist, emphasizing peacefulness and smart technology integration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAl7U9xUwkPaxdGIJnFBeH6myccdQuLUVwxvAR-8n2mayG86sreUmPMqj-RJZwZlOBHKNcN2DBf4aQuZTneoFz1Z6r_lMKuRZXkxv0wuie4ec29TVi86mpbj0-koxpH47AYyo6-SDVUPLVab6BqJyY3-YlSc9TKJsrdzVTL2qPhSe4oQWivCdi-X0UHZbIz24g4BXdNsRZMUsoz-Ctzw_Ha5to04ZAGTOgifpddmZQMkZ8So9wOm-AwVhR60h-gwSN6_juJP5JwnAo"/>
+<button class="absolute top-3 right-3 material-symbols-outlined bg-white/80 p-2 rounded-full text-on-surface hover:text-error transition-06">favorite</button>
+</div>
+<div class="flex flex-col gap-1 px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Smart Home</span>
+<h4 class="font-bold font-body-md text-on-surface truncate">Aura Smart Ring Lamp</h4>
+<div class="flex justify-between items-center mt-3">
+<span class="font-headline-lg text-[18px] text-primary">$215.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-[#FFB800]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold">5.0</span>
+</div>
+</div>
+<button class="mt-4 w-full bg-surface-container text-on-surface font-button-text text-button-text py-3 rounded-lg uppercase tracking-widest hover:bg-primary hover:text-white transition-06">Add To Cart</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant pt-24 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md px-container-padding max-w-7xl mx-auto mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-lg text-headline-lg font-black uppercase text-on-surface mb-6">MarketPlace</div>
+<p class="font-body-md text-on-surface-variant mb-6">Redefining commerce for the next generation of digital pioneers. Precision-led design, global scale.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 border border-outline-variant flex items-center justify-center rounded-[20%] hover:border-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">share</span>
+</a>
+<a class="w-10 h-10 border border-outline-variant flex items-center justify-center rounded-[20%] hover:border-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">hub</span>
+</a>
+<a class="w-10 h-10 border border-outline-variant flex items-center justify-center rounded-[20%] hover:border-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">public</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-on-surface uppercase font-label-sm mb-6">Company</h4>
+<ul class="space-y-3">
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">About Us</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">Contact</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">Privacy Policy</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface uppercase font-label-sm mb-6">Support</h4>
+<ul class="space-y-3">
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">Help Center</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">Shipping Info</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">Returns</a></li>
+<li><a class="font-label-sm text-on-surface-variant hover:underline hover:text-primary transition-all duration-300" href="#">Track Order</a></li>
+</ul>
+</div>
+<div class="bg-surface-bright p-8 rounded-[30px] border border-outline-variant">
+<h4 class="font-bold text-on-surface uppercase font-label-sm mb-4">The Feed</h4>
+<p class="font-body-md text-on-surface-variant mb-6">Join our elite network for priority access to drops.</p>
+<div class="flex flex-col gap-2">
+<input class="bg-surface-container rounded-lg px-4 py-3 border-none focus:ring-1 focus:ring-primary text-sm font-body-md" placeholder="Email Address" type="email"/>
+<button class="bg-[#2da0a8] text-white py-3 rounded-lg font-button-text text-button-text uppercase tracking-widest transition-06 hover:bg-primary">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-container-padding border-t border-outline-variant pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant">© 2024 MarketPlace. All rights reserved.</span>
+<div class="flex gap-8">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Global Logistics</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Encrypted Payments</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and subtle parallax
+        document.addEventListener('mousemove', (e) => {
+            const heroImg = document.querySelector('section img');
+            if (heroImg) {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                heroImg.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+
+        // Hover effect for category cards
+        const cards = document.querySelectorAll('.group');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const btn = card.querySelector('.material-symbols-outlined');
+                if (btn) btn.classList.add('translate-x-1');
+            });
+            card.addEventListener('mouseleave', () => {
+                const btn = card.querySelector('.material-symbols-outlined');
+                if (btn) btn.classList.remove('translate-x-1');
+            });
+        });
+    </script>
+</body></html>

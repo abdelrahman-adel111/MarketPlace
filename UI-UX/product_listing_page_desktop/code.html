@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MarketPlace | Product Listing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dcd9d9",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#6ed6de",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#bac3ff",
+                        "tertiary-fixed-dim": "#00dddd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#8bf3fb",
+                        "inverse-surface": "#303030",
+                        "gradient-start": "#5c6bc0",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed": "#00105b",
+                        "on-tertiary-container": "#003030",
+                        "input-fill": "#eeeeee",
+                        "surface-container-high": "#eae8e7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "gradient-end": "#2da0a8",
+                        "outline-variant": "#bdc9ca",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#27378a",
+                        "surface-tint": "#00696f",
+                        "surface-bright": "#fbf9f8",
+                        "tertiary-fixed": "#00fbfb",
+                        "error-container": "#ffdad6",
+                        "surface-bg": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004f4f",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002022",
+                        "on-error": "#ffffff",
+                        "outline": "#6d797a",
+                        "inverse-primary": "#6ed6de",
+                        "on-primary-container": "#003033",
+                        "primary": "#00696f",
+                        "tertiary-container": "#00a2a2",
+                        "border-low-light": "#cccccc",
+                        "surface": "#fbf9f8",
+                        "secondary": "#4858ab",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#2da0a8",
+                        "surface-variant": "#e4e2e1",
+                        "on-surface-variant": "#3d494a",
+                        "inverse-on-surface": "#f3f0f0",
+                        "secondary-fixed": "#dee0ff",
+                        "tertiary": "#006a6a",
+                        "on-tertiary-fixed": "#002020",
+                        "on-secondary-fixed-variant": "#2f3f92",
+                        "surface-container": "#f0eded",
+                        "background": "#fbf9f8",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#96a5ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "8px",
+                        "xl": "12px",
+                        "panel": "30px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "panel-padding": "30px",
+                        "container-padding": "40px",
+                        "gutter-md": "20px",
+                        "input-gap": "8px",
+                        "stack-xs": "3px",
+                        "stack-sm": "10px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-hero": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "label-sm": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "display-hero": ["100px", {"lineHeight": "100px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "button-text": ["12px", {"lineHeight": "12px", "letterSpacing": "0.5px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        .cyber-glow {
+            box-shadow: 0 0 50px rgba(45, 160, 168, 0.15);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .asymmetric-panel {
+            border-radius: 30px 8px 30px 8px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        input[type="range"] {
+            accent-color: #2da0a8;
+        }
+        .transition-600 {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full bg-surface border-b border-outline-variant shadow-sm transition-600">
+<div class="flex justify-between items-center px-container-padding py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-black uppercase text-on-surface tracking-tighter">MarketPlace</span>
+<div class="hidden md:flex gap-6">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-label-sm text-label-sm hover:text-primary transition-colors duration-600" href="#">Shop</a>
+<a class="text-on-surface-variant font-medium font-label-sm text-label-sm hover:text-primary transition-colors duration-600" href="#">Categories</a>
+<a class="text-on-surface-variant font-medium font-label-sm text-label-sm hover:text-primary transition-colors duration-600" href="#">Deals</a>
+<a class="text-on-surface-variant font-medium font-label-sm text-label-sm hover:text-primary transition-colors duration-600" href="#">New Arrivals</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<input class="bg-input-fill rounded-lg py-2 px-4 pl-10 text-label-sm font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container w-64" placeholder="Search products..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+<div class="flex gap-3">
+<button class="p-2 rounded-full hover:bg-surface-container transition-600 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="favorite">favorite</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container transition-600 scale-95 active:scale-90 relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">3</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container transition-600 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Breadcrumbs & Header -->
+<header class="max-w-7xl mx-auto px-container-padding pt-10 pb-6">
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm mb-4">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Electronics</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-primary font-bold">Laptops &amp; Computers</span>
+</nav>
+<div class="flex flex-col md:flex-row justify-between items-end md:items-center gap-4">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Premium Tech Collection</h1>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Showing 1-12 of 48 results</span>
+<div class="relative">
+<select class="appearance-none bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 pr-10 text-label-sm font-button-text focus:outline-none focus:border-primary cursor-pointer transition-600">
+<option>Sort by: Popularity</option>
+<option>Sort by: Newest</option>
+<option>Sort by: Price (Low to High)</option>
+<option>Sort by: Price (High to Low)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-padding pb-20 flex flex-col lg:flex-row gap-gutter-md">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-1/4 shrink-0">
+<div class="bg-white rounded-panel p-panel-padding cyber-glow sticky top-28">
+<div class="space-y-8">
+<!-- Category -->
+<div>
+<h3 class="font-button-text text-button-text uppercase tracking-widest text-primary mb-4">Category</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-600" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-600">Laptops (12)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-600" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-600">Tablets (8)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-600" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-600">Monitors (15)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-600" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface group-hover:text-primary transition-600">Accessories (13)</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<h3 class="font-button-text text-button-text uppercase tracking-widest text-primary mb-4">Price Range</h3>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" max="5000" min="0" step="100" type="range" value="2500"/>
+<div class="flex justify-between mt-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">$0</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Up to $2,500</span>
+</div>
+</div>
+<!-- Brand -->
+<div>
+<h3 class="font-button-text text-button-text uppercase tracking-widest text-primary mb-4">Brand</h3>
+<div class="grid grid-cols-2 gap-2">
+<button class="border border-outline-variant rounded-lg py-2 px-3 font-label-sm text-label-sm hover:border-primary hover:text-primary transition-600 bg-surface">Apple</button>
+<button class="border border-primary bg-primary-container/10 rounded-lg py-2 px-3 font-label-sm text-label-sm text-primary transition-600">Dell</button>
+<button class="border border-outline-variant rounded-lg py-2 px-3 font-label-sm text-label-sm hover:border-primary hover:text-primary transition-600 bg-surface">HP</button>
+<button class="border border-outline-variant rounded-lg py-2 px-3 font-label-sm text-label-sm hover:border-primary hover:text-primary transition-600 bg-surface">Asus</button>
+</div>
+</div>
+<!-- Rating -->
+<div>
+<h3 class="font-button-text text-button-text uppercase tracking-widest text-primary mb-4">Rating</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 border-outline-variant text-primary focus:ring-primary" name="rating" type="radio"/>
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">&amp; up</span>
+</label>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-button-text text-button-text py-3 rounded-lg uppercase tracking-widest transition-600 scale-100 hover:scale-[1.02] active:scale-95 shadow-md">
+                        Apply Filters
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Product Grid -->
+<section class="flex-1">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter-md">
+<!-- Product Card 1 -->
+<div class="group bg-white rounded-panel overflow-hidden cyber-glow transition-600 hover:-translate-y-2 relative">
+<div class="absolute top-4 right-4 z-10">
+<button class="bg-white/80 backdrop-blur-sm p-2 rounded-full text-on-surface-variant hover:text-error transition-600">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img alt="Premium Laptop" class="w-full h-full object-cover transition-600 group-hover:scale-110" data-alt="A sleek, ultra-thin high-performance laptop resting on a minimalist concrete desk. The lighting is cold and cinematic with soft cyan reflections, capturing a futuristic professional workspace. The device has a brushed aluminum finish and a glowing screen reflecting abstract data visualizations in shades of teal and indigo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP6SjLLgK-dJK9J8dFlD98hJiDELole0q3wGdqPQndRcT3W39-2ZcZwRWhKaHr7XZkxUBgNUgJnOWspt_4alIohxitwRhVSHzzi0bwNr7tjJ2a6iSB29T6fpVA59P36s9Q_pX8ITlTx6_lHmu_t8QeRBXj5saBQj4CoVWd0xzXs18BhgEcNjXUzY92rOvtN9Ewl2ySHp2VDlpNncnPlipImlErcPEneW_hRJaZ0RimHT_VqmAIHSb-yT70XrVK_AIxA5nrLrhX_1TM"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Premium Series</span>
+<h2 class="font-body-md text-body-md font-bold text-on-surface mt-1 group-hover:text-primary transition-600">Quantum Pro X1 Carbon</h2>
+<div class="flex items-center gap-1 mt-2 text-amber-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(124 reviews)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-headline-lg text-[20px] font-black text-on-surface">$1,499.00</span>
+<button class="bg-secondary text-on-secondary rounded-lg px-4 py-2 font-button-text text-button-text flex items-center gap-2 transition-600 hover:bg-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span>
+                                Add
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-white rounded-panel overflow-hidden cyber-glow transition-600 hover:-translate-y-2 relative">
+<div class="absolute top-4 left-4 z-10 bg-gradient-start text-white font-button-text text-[10px] px-3 py-1 rounded-full uppercase">New Arrival</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img alt="Creative Tablet" class="w-full h-full object-cover transition-600 group-hover:scale-110" data-alt="A professional 4K designer tablet with a precise stylus lying next to it on a dark oak wooden surface. The mood is moody and high-end, with focused warm spotlighting contrasting against cool ambient shadows. The tablet displays a vibrant digital painting with fluid, cybernetic shapes in the brand colors of cyan and violet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn2nrVcOAyiL_CjrC_E_VnCh30UkzTO5q8VhKt3a6aYMsYSXwt00tXy3TGrPPrVBGmhE3Iz0rJnwF2x1KGlZ_3OSgyE3DO34CLVz__FvnLymLl7MY5zB_MwwZzYcYREefFJzRwZQATLFk9njhC7yUmxzfZJqUMuRvDyi3WGj8lYuXCRnN0OEFiCkpNgjidlvoLOKIXaUDaV00g6JP6L3jjJeUj9XXtuJnQzd-G94m3DXXOY0rrcAcCE83vO_Dg0GoSfGSHcuFVi49T"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Creative Tools</span>
+<h2 class="font-body-md text-body-md font-bold text-on-surface mt-1 group-hover:text-primary transition-600">VisionPad 13 Ultra</h2>
+<div class="flex items-center gap-1 mt-2 text-amber-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(89 reviews)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-headline-lg text-[20px] font-black text-on-surface">$899.00</span>
+<button class="bg-secondary text-on-secondary rounded-lg px-4 py-2 font-button-text text-button-text flex items-center gap-2 transition-600 hover:bg-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span>
+                                Add
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-white rounded-panel overflow-hidden cyber-glow transition-600 hover:-translate-y-2 relative">
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img alt="Ultra-wide Monitor" class="w-full h-full object-cover transition-600 group-hover:scale-110" data-alt="A massive ultra-wide curved monitor glowing in a dark room. The screen shows a complex 3D rendering of a futuristic city. High-key cyan and purple backlighting creates an aura around the device. The setup is clean, emphasizing the thin bezels and the technological power of the hardware in a modern cyber-industrial setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOS6ImcIZgXxTl_rYcQDjT-tsRRzosv_dU8GFgdqhcgxEf2azJr0JD35sp2VMYWR1XZF7WMjlbyEQ1TxC0GZHpb4Jiy4oDPM03W8QgiPSuvUkydnIuvDZRCIBpXL5QKL0UZkvdAoG7LLXVi09kOpfJD2RJkqJGz2vlMh6IrGzUwCKqoYhrV8pY0U8IN9T5bdgXqOpApsidL3eVj9DhaT4zyUnIsZbZEWAoigXqq8wiHy2YRD-7M9RrNpfIfEmJ8NhjcAtFGQ2Z0yH_"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Display</span>
+<h2 class="font-body-md text-body-md font-bold text-on-surface mt-1 group-hover:text-primary transition-600">Horizon 49" Curved OLED</h2>
+<div class="flex items-center gap-1 mt-2 text-amber-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(210 reviews)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-headline-lg text-[20px] font-black text-on-surface">$1,249.00</span>
+<button class="bg-secondary text-on-secondary rounded-lg px-4 py-2 font-button-text text-button-text flex items-center gap-2 transition-600 hover:bg-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span>
+                                Add
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-white rounded-panel overflow-hidden cyber-glow transition-600 hover:-translate-y-2 relative">
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img alt="Mechanical Keyboard" class="w-full h-full object-cover transition-600 group-hover:scale-110" data-alt="Modern wireless mechanical keyboard with vibrant RGB backlighting in shades of teal and electric blue. The shot is a macro-view focusing on the texture of the keycaps and the soft glow beneath them. The aesthetic is clean, tech-forward, and premium, representing the pinnacle of desktop peripheral design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiY3vEbPKU8b7C0QWyJ8oW9fTeN9B5enhrCPwJMLEVYONqY9qUXAFTXoPBaVZKG_vhBuINMtcViF-um9gZ37YK7Oy4d9uUEdbtlqzCFb1nQvpRt7cHqSLnQeWbDuOjgmvpp6-7y6dXEdzG0jdm7m99EikIIjtfUe3AqaqoT32To4CjWNuQ1xYTdBkEizCN5vBquRl_s09wmgN3UWg40PsipgJ6YOAll2n4u36iy-VnPSCwaWIcRB6fs2vnChg740zN5lEEmnLW8S8Q"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Peripherals</span>
+<h2 class="font-body-md text-body-md font-bold text-on-surface mt-1 group-hover:text-primary transition-600">Apex Key TKL Wireless</h2>
+<div class="flex items-center gap-1 mt-2 text-amber-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(345 reviews)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-headline-lg text-[20px] font-black text-on-surface">$179.99</span>
+<button class="bg-secondary text-on-secondary rounded-lg px-4 py-2 font-button-text text-button-text flex items-center gap-2 transition-600 hover:bg-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span>
+                                Add
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-white rounded-panel overflow-hidden cyber-glow transition-600 hover:-translate-y-2 relative">
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img alt="Pro Camera" class="w-full h-full object-cover transition-600 group-hover:scale-110" data-alt="Professional grade mirrorless camera with a large lens positioned on a tripod in a dimly lit studio. Reflections of softbox lights create sharp highlights on the metallic body. The camera is sleek, black, and exudes professional quality. The background is a soft, deep gradient of navy and charcoal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOgTIypdTdXzRwT_UUsXIjDkmQBX4ip8sLYvkP6yt5wTPf1GK-rd-YA1YnAh28LMEsSyA2LdTJVZov9HR6u2yoRbRo1otfiWh8fjEoNAPhWugVKYn3219Kmv-uj6vDkhPjlP2J0KNoDdBGSJUbjodlW3RZV_2A6wXjwXxBlB_LdJAz3T6O8IFEXrDl80za_giOR3IPRbc2I67YqqslGyamySZfw4xAghTRgdISqRsF_GpvmDnXDV3QEQbV0wGTfTvvNOzUJIWcPfsD"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Photography</span>
+<h2 class="font-body-md text-body-md font-bold text-on-surface mt-1 group-hover:text-primary transition-600">Lumina G7 Mirrorless</h2>
+<div class="flex items-center gap-1 mt-2 text-amber-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(56 reviews)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-headline-lg text-[20px] font-black text-on-surface">$2,199.00</span>
+<button class="bg-secondary text-on-secondary rounded-lg px-4 py-2 font-button-text text-button-text flex items-center gap-2 transition-600 hover:bg-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span>
+                                Add
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-white rounded-panel overflow-hidden cyber-glow transition-600 hover:-translate-y-2 relative">
+<div class="absolute top-4 left-4 z-10 bg-error text-white font-button-text text-[10px] px-3 py-1 rounded-full uppercase">Sale -20%</div>
+<div class="aspect-square bg-surface-container overflow-hidden">
+<img alt="Wireless Headphones" class="w-full h-full object-cover transition-600 group-hover:scale-110" data-alt="High-fidelity wireless noise-canceling headphones in a matte space gray finish. They are presented on a glass stand with deep shadows and sharp, precise lighting highlights. The environment is minimalist and high-tech, with a subtle blue atmospheric glow that emphasizes the sleek industrial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsUfGVT6ZyC2jmTs6lHmyr7izpM3lx3Y9dmL1OhVVFwVMnKFLG5JhAlISM_WZd8MnyUYdrSt8f-r_FqRTjjsWtZH0CWSUI4UgG1eIVUjqZGUPi02zF_Fci5dL8pt_OSESmXKFwmUcA4teB7WVb6mcRcleLCaNT4Qtu1sjKKGcQCv7uWNAeTmna4WzbKZTf_tlsmgoQgIRnWSioWe6LQQoIGs9SGUHe-bixqI-fywmzQwPMe-n52Mx55wPS_exy9lKeHKotVEXX5ILj"/>
+</div>
+<div class="p-6">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-widest">Audio</span>
+<h2 class="font-body-md text-body-md font-bold text-on-surface mt-1 group-hover:text-primary transition-600">SonicPure NC Wireless</h2>
+<div class="flex items-center gap-1 mt-2 text-amber-400">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="text-on-surface-variant text-[12px] ml-1">(420 reviews)</span>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div>
+<span class="font-headline-lg text-[20px] font-black text-on-surface">$279.00</span>
+<span class="text-on-surface-variant line-through text-[14px] ml-2">$349.00</span>
+</div>
+<button class="bg-secondary text-on-secondary rounded-lg px-4 py-2 font-button-text text-button-text flex items-center gap-2 transition-600 hover:bg-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_cart">shopping_cart</span>
+                                Add
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex justify-center items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-600">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold transition-600">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-600">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-600">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-600">8</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-600">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-md px-container-padding py-panel-padding max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-black uppercase text-on-surface">MarketPlace</span>
+<p class="mt-4 font-body-md text-body-md text-on-surface-variant pr-4">
+                    Providing premium technology and cutting-edge design solutions for the digital age.
+                </p>
+<div class="flex gap-4 mt-6">
+<a class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-600 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[20px]">language</span>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-600 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant hover:border-primary hover:text-primary transition-600 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-button-text text-button-text uppercase tracking-widest text-on-surface mb-6">Quick Links</h4>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary hover:underline transition-600" href="#">About Us</a></li>
+<li><a class="hover:text-primary hover:underline transition-600" href="#">Contact</a></li>
+<li><a class="hover:text-primary hover:underline transition-600" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary hover:underline transition-600" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-button-text text-button-text uppercase tracking-widest text-on-surface mb-6">Customer Care</h4>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary hover:underline transition-600" href="#">Help Center</a></li>
+<li><a class="hover:text-primary hover:underline transition-600" href="#">Shipping Info</a></li>
+<li><a class="hover:text-primary hover:underline transition-600" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="hover:text-primary hover:underline transition-600" href="#">Order Tracking</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-button-text text-button-text uppercase tracking-widest text-on-surface mb-6">Newsletter</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Subscribe to get special offers and updates.</p>
+<div class="flex flex-col gap-2">
+<input class="bg-white border border-outline-variant rounded-lg px-4 py-2 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Your email" type="email"/>
+<button class="bg-primary text-on-primary font-button-text text-button-text py-2 rounded-lg uppercase tracking-widest transition-600">Subscribe</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-container-padding py-6 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center text-on-surface-variant font-label-sm text-label-sm gap-4">
+<span>© 2024 MarketPlace. All rights reserved.</span>
+<div class="flex gap-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">credit_card</span> Secure Payments</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">verified</span> 2-Year Warranty</span>
+</div>
+</div>
+</footer>
+<!-- FAB for Support (Contextual Suppression Logic applied, but left as a helpful addition for Marketplace Home/Listing) -->
+<button class="fixed bottom-8 right-8 bg-gradient-to-br from-gradient-start to-gradient-end text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-600 scale-100 hover:scale-110 active:scale-90 z-40">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</button>
+<script>
+        // Micro-interaction for filter sidebar sticky transition
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // Toggle heart icons
+        document.querySelectorAll('[data-icon="favorite"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined') || this;
+                const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+                icon.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                icon.classList.toggle('text-error', !isFilled);
+            });
+        });
+    </script>
+</body></html>
